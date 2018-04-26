@@ -160,6 +160,7 @@ namespace Project1 {
 			this->cb_escolaridade->Name = L"cb_escolaridade";
 			this->cb_escolaridade->Size = System::Drawing::Size(100, 21);
 			this->cb_escolaridade->TabIndex = 6;
+			this->cb_escolaridade->SelectedIndexChanged += gcnew System::EventHandler(this, &CaixaDeDialogo::cb_escolaridade_SelectedIndexChanged);
 			// 
 			// bt_ok
 			// 
@@ -206,5 +207,7 @@ namespace Project1 {
 		}
 #pragma endregion
 	
+private: System::Void cb_escolaridade_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

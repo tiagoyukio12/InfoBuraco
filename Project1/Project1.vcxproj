@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CaixaDeDialogo.cpp" />
+    <ClCompile Include="DashboardRegional.cpp" />
     <ClCompile Include="GerarRelatorio.cpp" />
     <ClCompile Include="Janela4.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
@@ -152,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CaixaDeDialogo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DashboardRegional.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GerarRelatorio.h">
@@ -175,6 +179,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CaixaDeDialogo.resx">
       <DependentUpon>CaixaDeDialogo.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardRegional.resx">
+      <DependentUpon>DashboardRegional.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GerarRelatorio.resx">
       <DependentUpon>GerarRelatorio.h</DependentUpon>
