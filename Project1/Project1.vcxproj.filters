@@ -24,10 +24,7 @@
     <ClCompile Include="CaixaDeDialogo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyForm1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MyForm2.cpp">
+    <ClCompile Include="GerarRelatorio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +38,7 @@
     <ClInclude Include="CaixaDeDialogo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyForm1.h">
+    <ClInclude Include="GerarRelatorio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,9 +50,6 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="CaixaDeDialogo.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyForm1.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
