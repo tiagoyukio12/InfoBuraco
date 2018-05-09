@@ -146,16 +146,17 @@
   <ItemGroup>
     <ClCompile Include="CaixaDeDialogo.cpp" />
     <ClCompile Include="DashboardRegional.cpp" />
+    <ClCompile Include="despachante.cpp" />
     <ClCompile Include="GerarRelatorio.cpp" />
     <ClCompile Include="Janela4.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CaixaDeDialogo.h">
+    <ClInclude Include="DashboardRegional.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="DashboardRegional.h">
+    <ClInclude Include="despachante.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GerarRelatorio.h">
@@ -177,12 +178,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CaixaDeDialogo.resx">
-      <DependentUpon>CaixaDeDialogo.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DashboardRegional.resx">
       <DependentUpon>DashboardRegional.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="despachante.resx" />
     <EmbeddedResource Include="GerarRelatorio.resx">
       <DependentUpon>GerarRelatorio.h</DependentUpon>
     </EmbeddedResource>

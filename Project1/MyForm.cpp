@@ -1,5 +1,4 @@
 #include "MyForm.h"
-#include "MenuPrincipal.h"
 namespace Project1 {
 	using namespace System;
 	using namespace System::Windows::Forms;
@@ -8,7 +7,7 @@ namespace Project1 {
 	{
 		Application::EnableVisualStyles();
 		Application::SetCompatibleTextRenderingDefault(false);
-		Application::Run(gcnew MenuPrincipal);
+		Application::Run(gcnew MyForm);
 		
 	}
 }

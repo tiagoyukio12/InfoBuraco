@@ -33,15 +33,15 @@
     <ClCompile Include="DashboardRegional.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="despachante.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Janela4.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CaixaDeDialogo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GerarRelatorio.h">
@@ -51,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DashboardRegional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="despachante.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,6 +71,12 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardRegional.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="despachante.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
