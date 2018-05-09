@@ -37,7 +37,11 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
-	private: System::Windows::Forms::CheckedListBox^  OS1;
+	private: System::Windows::Forms::ListView^  listView1;
+	private: System::Windows::Forms::ColumnHeader^  columnHeader1;
+	private: System::Windows::Forms::ColumnHeader^  columnHeader2;
+	private: System::Windows::Forms::ColumnHeader^  columnHeader3;
+
 	protected:
 
 	private:
@@ -53,10 +57,25 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::ListViewItem^  listViewItem1 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(3) {
+				L"1",
+					L"01/01/2018", L"10,00"
+			}, -1));
+			System::Windows::Forms::ListViewItem^  listViewItem2 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(3) {
+				L"2",
+					L"10/10/2000", L"999,99"
+			}, -1));
+			System::Windows::Forms::ListViewItem^  listViewItem3 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(3) {
+				L"3",
+					L"12/12/2010", L"500,00"
+			}, -1));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->OS1 = (gcnew System::Windows::Forms::CheckedListBox());
+			this->listView1 = (gcnew System::Windows::Forms::ListView());
+			this->columnHeader1 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader2 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader3 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -87,20 +106,48 @@ namespace Project1 {
 			this->button3->Text = L"Relatório Físico";
 			this->button3->UseVisualStyleBackColor = true;
 			// 
-			// OS1
+			// listView1
 			// 
-			this->OS1->FormattingEnabled = true;
-			this->OS1->Location = System::Drawing::Point(12, 18);
-			this->OS1->Name = L"OS1";
-			this->OS1->Size = System::Drawing::Size(452, 244);
-			this->OS1->TabIndex = 3;
+			this->listView1->CheckBoxes = true;
+			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(3) {
+				this->columnHeader1, this->columnHeader2,
+					this->columnHeader3
+			});
+			listViewItem1->StateImageIndex = 0;
+			listViewItem2->StateImageIndex = 0;
+			listViewItem3->StateImageIndex = 0;
+			this->listView1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ListViewItem^  >(3) {
+				listViewItem1, listViewItem2,
+					listViewItem3
+			});
+			this->listView1->Location = System::Drawing::Point(12, 12);
+			this->listView1->Name = L"listView1";
+			this->listView1->Size = System::Drawing::Size(452, 253);
+			this->listView1->TabIndex = 3;
+			this->listView1->UseCompatibleStateImageBehavior = false;
+			this->listView1->View = System::Windows::Forms::View::Details;
+			this->listView1->SelectedIndexChanged += gcnew System::EventHandler(this, &GerarRelatorio::listView1_SelectedIndexChanged);
+			// 
+			// columnHeader1
+			// 
+			this->columnHeader1->Text = L"No. OS";
+			this->columnHeader1->Width = 49;
+			// 
+			// columnHeader2
+			// 
+			this->columnHeader2->Text = L"Data de Finalização";
+			this->columnHeader2->Width = 112;
+			// 
+			// columnHeader3
+			// 
+			this->columnHeader3->Text = L"Custo";
 			// 
 			// GerarRelatorio
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(476, 373);
-			this->Controls->Add(this->OS1);
+			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -113,5 +160,7 @@ namespace Project1 {
 	private: System::Void bSair_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->Close();
 	}
-	};
+	private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }

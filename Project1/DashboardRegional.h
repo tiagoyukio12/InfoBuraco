@@ -65,19 +65,19 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::ListViewItem^  listViewItem5 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
+			System::Windows::Forms::ListViewItem^  listViewItem1 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
 				L"OS1",
 					L"data1"
 			}, -1, System::Drawing::SystemColors::WindowText, System::Drawing::Color::Empty, nullptr));
-			System::Windows::Forms::ListViewItem^  listViewItem6 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
+			System::Windows::Forms::ListViewItem^  listViewItem2 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
 				L"OS 2",
 					L"data2"
 			}, -1));
-			System::Windows::Forms::ListViewItem^  listViewItem7 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
+			System::Windows::Forms::ListViewItem^  listViewItem3 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
 				L"Buraco",
 					L"data1"
 			}, -1, System::Drawing::SystemColors::WindowText, System::Drawing::Color::Empty, nullptr));
-			System::Windows::Forms::ListViewItem^  listViewItem8 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
+			System::Windows::Forms::ListViewItem^  listViewItem4 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(2) {
 				L"Data",
 					L"data2"
 			}, -1));
@@ -124,10 +124,10 @@ namespace Project1 {
 			// listView1
 			// 
 			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(2) { this->Nome, this->Data });
-			listViewItem5->StateImageIndex = 0;
-			listViewItem5->Tag = L"";
-			listViewItem5->UseItemStyleForSubItems = false;
-			this->listView1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ListViewItem^  >(2) { listViewItem5, listViewItem6 });
+			listViewItem1->StateImageIndex = 0;
+			listViewItem1->Tag = L"";
+			listViewItem1->UseItemStyleForSubItems = false;
+			this->listView1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ListViewItem^  >(2) { listViewItem1, listViewItem2 });
 			this->listView1->Location = System::Drawing::Point(12, 12);
 			this->listView1->Name = L"listView1";
 			this->listView1->Size = System::Drawing::Size(450, 206);
@@ -149,16 +149,17 @@ namespace Project1 {
 			// listView2
 			// 
 			this->listView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(2) { this->columnHeader1, this->columnHeader2 });
-			listViewItem7->StateImageIndex = 0;
-			listViewItem7->Tag = L"";
-			listViewItem7->UseItemStyleForSubItems = false;
-			this->listView2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ListViewItem^  >(2) { listViewItem7, listViewItem8 });
+			listViewItem3->StateImageIndex = 0;
+			listViewItem3->Tag = L"";
+			listViewItem3->UseItemStyleForSubItems = false;
+			this->listView2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ListViewItem^  >(2) { listViewItem3, listViewItem4 });
 			this->listView2->Location = System::Drawing::Point(12, 236);
 			this->listView2->Name = L"listView2";
 			this->listView2->Size = System::Drawing::Size(450, 147);
 			this->listView2->TabIndex = 6;
 			this->listView2->UseCompatibleStateImageBehavior = false;
 			this->listView2->View = System::Windows::Forms::View::Details;
+			this->listView2->SelectedIndexChanged += gcnew System::EventHandler(this, &DashboardRegional::listView2_SelectedIndexChanged);
 			// 
 			// columnHeader1
 			// 
@@ -196,6 +197,8 @@ private: System::Void bGerRel_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void bSair_Click(System::Object^  sender, System::EventArgs^  e) {
 	this->Close();
+}
+private: System::Void listView2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
