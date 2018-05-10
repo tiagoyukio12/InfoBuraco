@@ -1,4 +1,5 @@
 #pragma once
+#include "PopupRelatorio.h"
 
 namespace Project1 {
 
@@ -96,6 +97,7 @@ namespace Project1 {
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Relatório Físico-Financeiro";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &GerarRelatorio::bRelFisFin_Click);
 			// 
 			// button3
 			// 
@@ -105,6 +107,7 @@ namespace Project1 {
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"Relatório Físico";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &GerarRelatorio::bRelFis_Click);
 			// 
 			// listView1
 			// 
@@ -152,7 +155,7 @@ namespace Project1 {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Name = L"GerarRelatorio";
-			this->Text = L"GerarRelatorio";
+			this->Text = L"Gerar Relatório";
 			this->ResumeLayout(false);
 
 		}
@@ -162,5 +165,13 @@ namespace Project1 {
 	}
 	private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
+private: System::Void bRelFis_Click(System::Object^  sender, System::EventArgs^  e) {
+	PopupRelatorio ^ form = gcnew PopupRelatorio;
+	form->ShowDialog();
+}
+private: System::Void bRelFisFin_Click(System::Object^  sender, System::EventArgs^  e) {
+	PopupRelatorio ^ form = gcnew PopupRelatorio;
+	form->ShowDialog();
+}
 };
 }

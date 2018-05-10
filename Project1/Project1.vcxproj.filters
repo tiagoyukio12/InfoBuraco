@@ -36,6 +36,9 @@
     <ClCompile Include="despachante.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PopupRelatorio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -54,6 +57,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="despachante.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CaixaDeDialogo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PopupRelatorio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

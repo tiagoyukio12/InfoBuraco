@@ -151,8 +151,12 @@
     <ClCompile Include="Janela4.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="PopupRelatorio.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CaixaDeDialogo.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DashboardRegional.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -171,6 +175,9 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PopupRelatorio.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dados\dados.vcxproj">
@@ -178,6 +185,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CaixaDeDialogo.resx" />
     <EmbeddedResource Include="DashboardRegional.resx">
       <DependentUpon>DashboardRegional.h</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopupRelatorio.resx">
+      <DependentUpon>PopupRelatorio.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
