@@ -101,18 +101,18 @@ namespace Project1 {
 			// lb_titulo
 			// 
 			this->lb_titulo->AutoSize = true;
-			this->lb_titulo->Location = System::Drawing::Point(96, 26);
+			this->lb_titulo->Location = System::Drawing::Point(63, 25);
 			this->lb_titulo->Name = L"lb_titulo";
-			this->lb_titulo->Size = System::Drawing::Size(46, 13);
+			this->lb_titulo->Size = System::Drawing::Size(114, 13);
 			this->lb_titulo->TabIndex = 0;
-			this->lb_titulo->Text = L"Registro";
+			this->lb_titulo->Text = L"Registro Novo Usuário";
 			this->lb_titulo->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->lb_titulo->Click += gcnew System::EventHandler(this, &CaixaDeDialogo::lb_titulo_Click);
 			// 
 			// lb_usuario
 			// 
 			this->lb_usuario->AutoSize = true;
-			this->lb_usuario->Location = System::Drawing::Point(44, 65);
+			this->lb_usuario->Location = System::Drawing::Point(30, 65);
 			this->lb_usuario->Name = L"lb_usuario";
 			this->lb_usuario->Size = System::Drawing::Size(46, 13);
 			this->lb_usuario->TabIndex = 1;
@@ -122,7 +122,7 @@ namespace Project1 {
 			// lb_senha
 			// 
 			this->lb_senha->AutoSize = true;
-			this->lb_senha->Location = System::Drawing::Point(30, 111);
+			this->lb_senha->Location = System::Drawing::Point(30, 101);
 			this->lb_senha->Name = L"lb_senha";
 			this->lb_senha->Size = System::Drawing::Size(41, 13);
 			this->lb_senha->TabIndex = 2;
@@ -132,7 +132,7 @@ namespace Project1 {
 			// lb_funcao
 			// 
 			this->lb_funcao->AutoSize = true;
-			this->lb_funcao->Location = System::Drawing::Point(11, 152);
+			this->lb_funcao->Location = System::Drawing::Point(25, 138);
 			this->lb_funcao->Name = L"lb_funcao";
 			this->lb_funcao->Size = System::Drawing::Size(46, 13);
 			this->lb_funcao->TabIndex = 3;
@@ -141,16 +141,16 @@ namespace Project1 {
 			// 
 			// tb_usuario
 			// 
-			this->tb_usuario->Location = System::Drawing::Point(99, 65);
+			this->tb_usuario->Location = System::Drawing::Point(82, 62);
 			this->tb_usuario->Name = L"tb_usuario";
-			this->tb_usuario->Size = System::Drawing::Size(100, 20);
+			this->tb_usuario->Size = System::Drawing::Size(95, 20);
 			this->tb_usuario->TabIndex = 4;
 			// 
 			// tb_senha
 			// 
-			this->tb_senha->Location = System::Drawing::Point(99, 111);
+			this->tb_senha->Location = System::Drawing::Point(82, 101);
 			this->tb_senha->Name = L"tb_senha";
-			this->tb_senha->Size = System::Drawing::Size(100, 20);
+			this->tb_senha->Size = System::Drawing::Size(95, 20);
 			this->tb_senha->TabIndex = 5;
 			// 
 			// cb_funcao
@@ -160,15 +160,15 @@ namespace Project1 {
 				L"Assessor de Comunicação", L"Gestor Regional",
 					L"Despachador", L"Departamentor Financeiro", L"Gestor do Sistema"
 			});
-			this->cb_funcao->Location = System::Drawing::Point(99, 152);
+			this->cb_funcao->Location = System::Drawing::Point(82, 138);
 			this->cb_funcao->Name = L"cb_funcao";
-			this->cb_funcao->Size = System::Drawing::Size(100, 21);
+			this->cb_funcao->Size = System::Drawing::Size(95, 21);
 			this->cb_funcao->TabIndex = 6;
 			// 
 			// bt_ok
 			// 
 			this->bt_ok->DialogResult = System::Windows::Forms::DialogResult::OK;
-			this->bt_ok->Location = System::Drawing::Point(47, 209);
+			this->bt_ok->Location = System::Drawing::Point(33, 180);
 			this->bt_ok->Name = L"bt_ok";
 			this->bt_ok->Size = System::Drawing::Size(75, 23);
 			this->bt_ok->TabIndex = 7;
@@ -178,7 +178,7 @@ namespace Project1 {
 			// bt_cancelar
 			// 
 			this->bt_cancelar->DialogResult = System::Windows::Forms::DialogResult::Cancel;
-			this->bt_cancelar->Location = System::Drawing::Point(140, 209);
+			this->bt_cancelar->Location = System::Drawing::Point(126, 180);
 			this->bt_cancelar->Name = L"bt_cancelar";
 			this->bt_cancelar->Size = System::Drawing::Size(75, 23);
 			this->bt_cancelar->TabIndex = 8;
@@ -191,7 +191,7 @@ namespace Project1 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->CancelButton = this->bt_cancelar;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(221, 220);
 			this->Controls->Add(this->bt_cancelar);
 			this->Controls->Add(this->bt_ok);
 			this->Controls->Add(this->cb_funcao);
@@ -203,7 +203,7 @@ namespace Project1 {
 			this->Controls->Add(this->lb_titulo);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::Fixed3D;
 			this->Name = L"CaixaDeDialogo";
-			this->Text = L"Dados Pessoais";
+			this->Text = L"Registro";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

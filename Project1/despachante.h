@@ -135,7 +135,7 @@ namespace Project1 {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Name = L"despachante";
-			this->Text = L"despachante";
+			this->Text = L"Dashboard Despachante";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

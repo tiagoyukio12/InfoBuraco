@@ -181,6 +181,7 @@ namespace Project1 {
 			this->menuStrip1->Size = System::Drawing::Size(279, 24);
 			this->menuStrip1->TabIndex = 12;
 			this->menuStrip1->Text = L"menuStrip1";
+			this->menuStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &MyForm::menuStrip1_ItemClicked);
 			// 
 			// menuToolStripMenuItem
 			// 
@@ -253,7 +254,8 @@ namespace Project1 {
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
-			this->Text = L"Aplicação CLR usando C++";
+			this->Text = L"Login";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
@@ -317,6 +319,10 @@ private: System::Void exCaixaDeDialogoToolStripMenuItem_Click(System::Object^  s
 		this->tb_mensagem->AppendText("\r\n" + caixa->senha);
 	}
 
+}
+private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void menuStrip1_ItemClicked(System::Object^  sender, System::Windows::Forms::ToolStripItemClickedEventArgs^  e) {
 }
 };
 }
