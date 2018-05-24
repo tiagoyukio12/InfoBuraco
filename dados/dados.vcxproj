@@ -18,6 +18,36 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Buraco.cpp" />
+    <ClCompile Include="Controlador.cpp" />
+    <ClCompile Include="DAO.cpp" />
+    <ClCompile Include="Equipamento.cpp" />
+    <ClCompile Include="Equipe.cpp" />
+    <ClCompile Include="Foto.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Notificacao.cpp" />
+    <ClCompile Include="OrdemDeServico.cpp" />
+    <ClCompile Include="QuantidadeMaterial.cpp" />
+    <ClCompile Include="serviçoDeEmail.cpp" />
+    <ClCompile Include="Telas.cpp" />
+    <ClCompile Include="Usuario.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Buraco.h" />
+    <ClInclude Include="Controlador.h" />
+    <ClInclude Include="DAO.h" />
+    <ClInclude Include="Equipamento.h" />
+    <ClInclude Include="Equipe.h" />
+    <ClInclude Include="Foto.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="Notificacao.h" />
+    <ClInclude Include="OrdemDeServico.h" />
+    <ClInclude Include="QuantidadeMaterial.h" />
+    <ClInclude Include="serviçoDeEmail.h" />
+    <ClInclude Include="Telas.h" />
+    <ClInclude Include="Usuario.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{7915739C-DB11-453B-9AD9-FBD25A025164}</ProjectGuid>
