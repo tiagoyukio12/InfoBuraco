@@ -1,6 +1,7 @@
 #pragma once
 #include "DashboardRegional.h"
 #include "despachante.h"
+#include "dominio/seguranca/Usuario.h"
 
 namespace Project1 {
 
@@ -16,13 +17,12 @@ namespace Project1 {
 	/// </summary>
 	public ref class MenuPrincipal : public System::Windows::Forms::Form
 	{
+	private:
+		Usuario * usuario = nullptr;
 	public:
-		MenuPrincipal(void)
+		MenuPrincipal(Usuario *usuario) : usuario(usuario)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
 
 	protected:
