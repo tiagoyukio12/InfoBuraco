@@ -3,6 +3,7 @@
 //Begin section for file Notificacao.h
 //TODO: Add definitions that you want preserved
 //End section for file Notificacao.h
+#include "Date.h"
 
 
 class Buraco; //Dependency Generated Source:Notificacao Target:Buraco

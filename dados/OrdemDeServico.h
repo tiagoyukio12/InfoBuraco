@@ -4,7 +4,7 @@
 //TODO: Add definitions that you want preserved
 //End section for file OrdemDeServico.h
 #include "Foto.h"
-
+#include "Date.h"
 
 
 class Buraco; //Dependency Generated Source:OrdemDeServico Target:Buraco

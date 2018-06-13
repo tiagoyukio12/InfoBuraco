@@ -3,6 +3,7 @@
 //Begin section for file Buraco.h
 //TODO: Add definitions that you want preserved
 //End section for file Buraco.h
+#include "Date.h"
 
 
 class OrdemDeServico; //Dependency Generated Source:Buraco Target:OrdemDeServico
