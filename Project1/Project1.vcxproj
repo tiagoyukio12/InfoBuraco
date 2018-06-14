@@ -148,7 +148,6 @@
     <ClCompile Include="CaixaDeDialogo.cpp" />
     <ClCompile Include="dados\Buraco.cpp" />
     <ClCompile Include="dados\Controlador.cpp" />
-    <ClCompile Include="dados\DAO.cpp" />
     <ClCompile Include="dados\Date.cpp" />
     <ClCompile Include="dados\Equipamento.cpp" />
     <ClCompile Include="dados\Equipe.cpp" />
@@ -157,9 +156,6 @@
     <ClCompile Include="dados\Notificacao.cpp" />
     <ClCompile Include="dados\OrdemDeServico.cpp" />
     <ClCompile Include="dados\QuantidadeMaterial.cpp" />
-    <ClCompile Include="dados\serviçoDeEmail.cpp" />
-    <ClCompile Include="dados\Telas.cpp" />
-    <ClCompile Include="dados\Usuario.cpp" />
     <ClCompile Include="dao\FuncionalidadeDAO.cpp" />
     <ClCompile Include="dao\GerenciadorDePerfisDeUsuario.cpp" />
     <ClCompile Include="dao\MySQLDAO.cpp" />
@@ -183,7 +179,6 @@
     </ClInclude>
     <ClInclude Include="dados\Buraco.h" />
     <ClInclude Include="dados\Controlador.h" />
-    <ClInclude Include="dados\DAO.h" />
     <ClInclude Include="dados\Date.h" />
     <ClInclude Include="dados\Equipamento.h" />
     <ClInclude Include="dados\Equipe.h" />
@@ -192,9 +187,6 @@
     <ClInclude Include="dados\Notificacao.h" />
     <ClInclude Include="dados\OrdemDeServico.h" />
     <ClInclude Include="dados\QuantidadeMaterial.h" />
-    <ClInclude Include="dados\serviçoDeEmail.h" />
-    <ClInclude Include="dados\Telas.h" />
-    <ClInclude Include="dados\Usuario.h" />
     <ClInclude Include="dao\FuncionalidadeDAO.h" />
     <ClInclude Include="dao\GerenciadorDePerfisDeUsuario.h" />
     <ClInclude Include="dao\MySQLDAO.h" />

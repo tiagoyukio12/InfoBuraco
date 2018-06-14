@@ -1,76 +1,46 @@
 #include "Equipe.h"
-//Begin section for file Equipe.cpp
-//TODO: Add definitions that you want preserved
-//End section for file Equipe.cpp
 
 
-
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Equipe::Equipe() 
+Equipe::Equipe()
 {
-    //TODO Auto-generated method stub
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Equipe::~Equipe() 
-{
-    //TODO Auto-generated method stub
+Equipe::Equipe(std::string nome, int custoHora, int numIntegrantes, int custoMobilizacao) {
+	this->nome = nome;
+	this->custoHora = custoHora;
+	this->numIntegrantes = numIntegrantes;
+	this->custoMobilizacao = custoMobilizacao;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-const char * Equipe::get_nome() 
+Equipe::~Equipe()
 {
-    //TODO Auto-generated method stub
-    return nome;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-int Equipe::get_custoHora() 
+std::string Equipe::get_nome()
 {
-    //TODO Auto-generated method stub
-    return custoHora;
+	return nome;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Equipe::set_custoHora(int custoHora) 
+int Equipe::get_custoHora()
 {
-    //TODO Auto-generated method stub
-    this->custoHora = custoHora;
+	return custoHora;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-int Equipe::get_numIntegrantes() 
+void Equipe::set_custoHora(int custoHora)
 {
-    //TODO Auto-generated method stub
-    return numIntegrantes;
+	this->custoHora = custoHora;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Equipe::set_numIntegrantes(int numIntegrantes) 
+int Equipe::get_numIntegrantes()
 {
-    //TODO Auto-generated method stub
-    this->numIntegrantes = numIntegrantes;
+	return numIntegrantes;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-int Equipe::get_custoMobilizacao() 
+void Equipe::set_numIntegrantes(int numIntegrantes)
 {
-    //TODO Auto-generated method stub
-    return custoMobilizacao;
+	this->numIntegrantes = numIntegrantes;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Equipe::set_custoMobilizacao(int custoMobilizacao) 
+int Equipe::get_custoMobilizacao()
 {
-    //TODO Auto-generated method stub
-    this->custoMobilizacao = custoMobilizacao;
+	return custoMobilizacao;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-OrdemDeServico * Equipe::get_ordemDeServico() 
+void Equipe::set_custoMobilizacao(int custoMobilizacao)
 {
-    //TODO Auto-generated method stub
-    return ordemDeServico;
+	this->custoMobilizacao = custoMobilizacao;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Equipe::set_ordemDeServico(OrdemDeServico * ordemDeServico) 
-{
-    //TODO Auto-generated method stub
-}
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Equipe::getCustoHora() 
-{
-    //TODO Auto-generated method stub
-    return;
+int Equipe::getCusto(int horas) {
+	return custoMobilizacao + horas * custoHora;
 }

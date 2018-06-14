@@ -87,9 +87,6 @@
     <ClCompile Include="dados\Controlador.cpp">
       <Filter>Class Source</Filter>
     </ClCompile>
-    <ClCompile Include="dados\DAO.cpp">
-      <Filter>Class Source</Filter>
-    </ClCompile>
     <ClCompile Include="dados\Date.cpp">
       <Filter>Class Source</Filter>
     </ClCompile>
@@ -112,15 +109,6 @@
       <Filter>Class Source</Filter>
     </ClCompile>
     <ClCompile Include="dados\QuantidadeMaterial.cpp">
-      <Filter>Class Source</Filter>
-    </ClCompile>
-    <ClCompile Include="dados\serviçoDeEmail.cpp">
-      <Filter>Class Source</Filter>
-    </ClCompile>
-    <ClCompile Include="dados\Telas.cpp">
-      <Filter>Class Source</Filter>
-    </ClCompile>
-    <ClCompile Include="dados\Usuario.cpp">
       <Filter>Class Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -182,9 +170,6 @@
     <ClInclude Include="dados\Controlador.h">
       <Filter>Class</Filter>
     </ClInclude>
-    <ClInclude Include="dados\DAO.h">
-      <Filter>Class</Filter>
-    </ClInclude>
     <ClInclude Include="dados\Date.h">
       <Filter>Class</Filter>
     </ClInclude>
@@ -207,15 +192,6 @@
       <Filter>Class</Filter>
     </ClInclude>
     <ClInclude Include="dados\QuantidadeMaterial.h">
-      <Filter>Class</Filter>
-    </ClInclude>
-    <ClInclude Include="dados\serviçoDeEmail.h">
-      <Filter>Class</Filter>
-    </ClInclude>
-    <ClInclude Include="dados\Telas.h">
-      <Filter>Class</Filter>
-    </ClInclude>
-    <ClInclude Include="dados\Usuario.h">
       <Filter>Class</Filter>
     </ClInclude>
   </ItemGroup>
