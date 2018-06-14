@@ -12,7 +12,7 @@ Date::~Date()
 {
 }
 
-string Date::getDate()
+std::string Date::getDate()
 {
-	return to_string(dia) + "/" + to_string(mes) + "/" + to_string(ano);
+	return std::to_string(dia) + "/" + std::to_string(mes) + "/" + std::to_string(ano);
 }

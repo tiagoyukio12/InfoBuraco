@@ -22,6 +22,12 @@
     <Filter Include="DAO">
       <UniqueIdentifier>{9960e9b9-c1a1-40fb-ad5f-295d761f7f76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Class Source">
+      <UniqueIdentifier>{b51d74e0-0410-4d84-8752-9d99d01723fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Class">
+      <UniqueIdentifier>{0e3e02ff-2464-4a17-8886-6ac82d962c0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
@@ -75,6 +81,48 @@
     <ClCompile Include="dao\UsuarioDAO.cpp">
       <Filter>DAO</Filter>
     </ClCompile>
+    <ClCompile Include="dados\Buraco.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\Controlador.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\DAO.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\Date.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\Equipamento.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\Equipe.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\Foto.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\Material.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\Notificacao.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\OrdemDeServico.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\QuantidadeMaterial.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\serviçoDeEmail.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\Telas.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
+    <ClCompile Include="dados\Usuario.cpp">
+      <Filter>Class Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Janela4.h">
@@ -127,6 +175,48 @@
     </ClInclude>
     <ClInclude Include="Login.h">
       <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\Buraco.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\Controlador.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\DAO.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\Date.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\Equipamento.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\Equipe.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\Foto.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\Material.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\Notificacao.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\OrdemDeServico.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\QuantidadeMaterial.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\serviçoDeEmail.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\Telas.h">
+      <Filter>Class</Filter>
+    </ClInclude>
+    <ClInclude Include="dados\Usuario.h">
+      <Filter>Class</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

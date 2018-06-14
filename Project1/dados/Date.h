@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
 
-using namespace::std;
-
 class Date
 {
 private:
@@ -14,6 +12,6 @@ public:
 	~Date();
 
 	// Retorna data no formato dd/mm/yyyy
-	string getDate();
+	std::string getDate();
 };
 
