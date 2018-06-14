@@ -20,8 +20,9 @@ namespace Project1 {
 	private: 
 		std::shared_ptr<Usuario> *usuario = nullptr;
 	public:
-		DashboardRegional(std::shared_ptr<Usuario>* usuario) : usuario(usuario)
+		DashboardRegional(std::shared_ptr<Usuario>* usuario)
 		{
+			this->usuario = new std::shared_ptr<Usuario>(*usuario);
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here

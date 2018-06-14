@@ -19,10 +19,11 @@ namespace Project1 {
 	public ref class MenuPrincipal : public System::Windows::Forms::Form
 	{
 	private:
-		std::shared_ptr<Usuario> *usuario = nullptr;
+		std::shared_ptr<Usuario>* usuario = nullptr;
 	public:
-		MenuPrincipal(std::shared_ptr<Usuario>* usuario) : usuario(usuario)
+		MenuPrincipal(std::shared_ptr<Usuario>* usuario)
 		{
+			this->usuario = new std::shared_ptr<Usuario>(*usuario);
 			InitializeComponent();
 		}
 
@@ -134,12 +135,12 @@ namespace Project1 {
 	private: System::Void MenuPrincipal_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 private: System::Void bRegional_Click(System::Object^  sender, System::EventArgs^  e) {
-	//(*usuario)->getPerfis()->at(1)->getFuncionalidades()->at(1)->getNome == "Despachante"
+	if ((*usuario)->permissaoFuncionalidade("Regional") == false) { MessageBox::Show("Você não tem permissão para isso."); return; }
 	DashboardRegional ^ form = gcnew DashboardRegional(usuario);
 	form->ShowDialog();
 }
 private: System::Void bDespachante_Click(System::Object^  sender, System::EventArgs^  e) {
-	//(*usuario)->getPerfis()->at(1)->getFuncionalidades()->at(1)->getNome == "Despachante"
+	if ((*usuario)->permissaoFuncionalidade("Despachante") == false) { MessageBox::Show("Você não tem permissão para isso."); return; }
 	despachante ^ form = gcnew despachante(usuario);
 	form->ShowDialog();
 }

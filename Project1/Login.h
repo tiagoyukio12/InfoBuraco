@@ -239,6 +239,7 @@ private: System::Void bt_limpar_Click(System::Object^  sender, System::EventArgs
 	tb_senha->BackColor = System::Drawing::Color::White;
 
 }
+
 private: System::Void bt_validar_Click(System::Object^  sender, System::EventArgs^  e) {
 	try
 	{
@@ -260,7 +261,6 @@ private: System::Void bt_validar_Click(System::Object^  sender, System::EventArg
 				" logado com sucesso, cadastrado em: " + msclr::interop::marshal_as<String^>(d));
 
 			usuario = seguranca->carregarFuncionalidades(usuario);
-
 			MenuPrincipal^ tu = gcnew MenuPrincipal(&usuario);
 			this->Hide();
 			tu->Show();

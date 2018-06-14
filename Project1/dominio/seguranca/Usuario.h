@@ -32,7 +32,7 @@ class Usuario
 		time_t getDataCadastro();
 
 		bool permissaoFuncionalidade(std::string nomeDaFuncionalidade);
-		bool Usuario::permissaoFuncionalidade(int idDaFuncionalidade);
+		bool permissaoFuncionalidade(int idDaFuncionalidade);
 
         virtual ~Usuario(); 
 

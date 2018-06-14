@@ -194,6 +194,7 @@
     <ClInclude Include="dados\QuantidadeMaterial.h" />
     <ClInclude Include="dados\serviçoDeEmail.h" />
     <ClInclude Include="dados\Telas.h" />
+    <ClInclude Include="dados\WrapperUser.h" />
     <ClInclude Include="dao\FuncionalidadeDAO.h" />
     <ClInclude Include="dao\GerenciadorDePerfisDeUsuario.h" />
     <ClInclude Include="dao\MySQLDAO.h" />

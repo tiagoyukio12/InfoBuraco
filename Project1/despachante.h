@@ -19,8 +19,9 @@ namespace Project1 {
 	private:
 		std::shared_ptr<Usuario>* usuario = nullptr;
 	public:
-		despachante(std::shared_ptr<Usuario>* usuario) : usuario(usuario)
+		despachante(std::shared_ptr<Usuario>* usuario)
 		{
+			this->usuario = new std::shared_ptr<Usuario>(*usuario);
 			InitializeComponent();
 			//
 			//TODO: Adicione o código do construtor aqui

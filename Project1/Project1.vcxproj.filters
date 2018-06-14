@@ -212,6 +212,9 @@
     <ClInclude Include="dados\Telas.h">
       <Filter>Class</Filter>
     </ClInclude>
+    <ClInclude Include="dados\WrapperUser.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Janela4.resx">
