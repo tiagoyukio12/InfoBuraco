@@ -1,191 +1,135 @@
 #include "OrdemDeServico.h"
-//Begin section for file OrdemDeServico.cpp
-//TODO: Add definitions that you want preserved
-//End section for file OrdemDeServico.cpp
 
 
-
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-OrdemDeServico::OrdemDeServico() 
+OrdemDeServico::OrdemDeServico(int id, Date * dataInicio, Date * dataFim, int estimativaHoras, int estimativaCusto, bool finalizado, Buraco * buraco, int prioridade, int custoTotal)
 {
-    //TODO Auto-generated method stub
+	this->id = id;
+	this->dataInicio = dataInicio;
+	this->dataFim = dataFim;
+	this->estimativaHoras = estimativaHoras;
+	this->estimativaCusto = estimativaCusto;
+	this->finalizado = finalizado;
+	this->buraco = buraco;
+	this->prioridade = prioridade;
+	this->custoTotal = custoTotal;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 OrdemDeServico::~OrdemDeServico() 
 {
-    //TODO Auto-generated method stub
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 int OrdemDeServico::get_id() 
 {
-    //TODO Auto-generated method stub
     return id;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 void OrdemDeServico::set_id(int id) 
 {
-    //TODO Auto-generated method stub
     this->id = id;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Date OrdemDeServico::get_dataInicio() 
+Date * OrdemDeServico::get_dataInicio() 
 {
-    //TODO Auto-generated method stub
     return dataInicio;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void OrdemDeServico::set_dataInicio(Date dataInicio) 
+void OrdemDeServico::set_dataInicio(Date * dataInicio) 
 {
-    //TODO Auto-generated method stub
     this->dataInicio = dataInicio;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Date OrdemDeServico::get_dataFim() 
+Date * OrdemDeServico::get_dataFim() 
 {
-    //TODO Auto-generated method stub
     return dataFim;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void OrdemDeServico::set_dataFim(Date dataFim) 
+void OrdemDeServico::set_dataFim(Date * dataFim) 
 {
-    //TODO Auto-generated method stub
     this->dataFim = dataFim;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 int OrdemDeServico::get_estimativaHoras() 
 {
-    //TODO Auto-generated method stub
     return estimativaHoras;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 void OrdemDeServico::set_estimativaHoras(int estimativaHoras) 
 {
-    //TODO Auto-generated method stub
     this->estimativaHoras = estimativaHoras;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 int OrdemDeServico::get_estimativaCusto() 
 {
-    //TODO Auto-generated method stub
     return estimativaCusto;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 void OrdemDeServico::set_estimativaCusto(int estimativaCusto) 
 {
-    //TODO Auto-generated method stub
     this->estimativaCusto = estimativaCusto;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 bool OrdemDeServico::get_finalizado() 
 {
-    //TODO Auto-generated method stub
     return finalizado;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 void OrdemDeServico::set_finalizado(bool finalizado) 
 {
-    //TODO Auto-generated method stub
     this->finalizado = finalizado;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 Buraco * OrdemDeServico::get_buraco() 
 {
-    //TODO Auto-generated method stub
     return buraco;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 void OrdemDeServico::set_buraco(Buraco * buraco) 
 {
-    //TODO Auto-generated method stub
+	this->buraco = buraco;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Equipamento * OrdemDeServico::get_equipamento() 
+std::list<Equipamento*> OrdemDeServico::getListaEquipamento()
 {
-    //TODO Auto-generated method stub
-    return equipamento;
+	return listaEquipamento;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void OrdemDeServico::set_equipamento(Equipamento * equipamento) 
+void OrdemDeServico::addListaEquipamento(Equipamento * equipamento)
 {
-    //TODO Auto-generated method stub
+	listaEquipamento.push_back(equipamento);
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Equipe * OrdemDeServico::get_equipe() 
+std::list<Equipe*> OrdemDeServico::getListaEquipe()
 {
-    //TODO Auto-generated method stub
-    return equipe;
+	return listaEquipe;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void OrdemDeServico::set_equipe(Equipe * equipe) 
+void OrdemDeServico::addListaEquipe(Equipe * equipe)
 {
-    //TODO Auto-generated method stub
+	listaEquipe.push_back(equipe);
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Material * OrdemDeServico::get_material() 
+std::list<Material*> OrdemDeServico::getListaMaterial()
 {
-    //TODO Auto-generated method stub
-    return material;
+	return listaMaterial;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void OrdemDeServico::set_material(Material * material) 
+void OrdemDeServico::addListaMaterial(Material * material)
 {
-    //TODO Auto-generated method stub
+	listaMaterial.push_back(material);
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 int OrdemDeServico::get_prioridade() 
 {
-    //TODO Auto-generated method stub
     return prioridade;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 void OrdemDeServico::set_prioridade(int prioridade) 
 {
-    //TODO Auto-generated method stub
     this->prioridade = prioridade;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 int OrdemDeServico::get_custoTotal() 
 {
-    //TODO Auto-generated method stub
     return custoTotal;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 void OrdemDeServico::set_custoTotal(int custoTotal) 
 {
-    //TODO Auto-generated method stub
     this->custoTotal = custoTotal;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Foto * OrdemDeServico::get_foto() 
+std::list<Foto*> OrdemDeServico::getListaFoto()
 {
-    //TODO Auto-generated method stub
-    return foto;
+	return listaFoto;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void OrdemDeServico::set_foto(Foto * foto) 
+void OrdemDeServico::addListaFoto(Foto * foto)
 {
-    //TODO Auto-generated method stub
+	listaFoto.push_back(foto);
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-QuantidadeMaterial * OrdemDeServico::get_quantidadeMaterial() 
+std::list<QuantidadeMaterial*> OrdemDeServico::getListaQuantidadeMaterial()
 {
-    //TODO Auto-generated method stub
-    return quantidadeMaterial;
+	return listaQuantidadeMaterial;
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void OrdemDeServico::set_quantidadeMaterial(QuantidadeMaterial * quantidadeMaterial) 
+void OrdemDeServico::addListaQuantidadeMaterial(QuantidadeMaterial * quantidadeMaterial)
 {
-    //TODO Auto-generated method stub
+	listaQuantidadeMaterial.push_back(quantidadeMaterial);
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void OrdemDeServico::calcularCustoTotal() 
+int OrdemDeServico::calcularCustoTotal() 
 {
-    //TODO Auto-generated method stub
-    return;
-}
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void OrdemDeServico::getNome() 
-{
-    //TODO Auto-generated method stub
-    return;
+	// TODO: algoritmo para calcular custo a partir de materiais, equipamentos, etc.
+    return 0;
 }
