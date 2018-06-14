@@ -31,7 +31,5 @@ public:
 	int get_custoMobilizacao();
 	
 	void set_custoMobilizacao(int custoMobilizacao);
-
-	int getCusto(int horas);
 };
 #endif

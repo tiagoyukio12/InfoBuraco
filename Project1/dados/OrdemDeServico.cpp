@@ -47,6 +47,7 @@ int OrdemDeServico::get_estimativaHoras()
 void OrdemDeServico::set_estimativaHoras(int estimativaHoras) 
 {
     this->estimativaHoras = estimativaHoras;
+	estimativaCusto = calcularCustoTotal(estimativaHoras);
 }
 int OrdemDeServico::get_estimativaCusto() 
 {
@@ -122,14 +123,26 @@ void OrdemDeServico::addListaFoto(Foto * foto)
 }
 std::list<QuantidadeMaterial*> OrdemDeServico::getListaQuantidadeMaterial()
 {
-	return listaQuantidadeMaterial;
+	return listaQuantMat;
 }
 void OrdemDeServico::addListaQuantidadeMaterial(QuantidadeMaterial * quantidadeMaterial)
 {
-	listaQuantidadeMaterial.push_back(quantidadeMaterial);
+	listaQuantMat.push_back(quantidadeMaterial);
 }
-int OrdemDeServico::calcularCustoTotal() 
+int OrdemDeServico::calcularCustoTotal(int horas) 
 {
 	// TODO: algoritmo para calcular custo a partir de materiais, equipamentos, etc.
-    return 0;
+	int custoMateriais = 0, custoEquipes = 0, custoEquipamentos = 0;
+	
+	for (std::list<QuantidadeMaterial>::iterator it = listaQuantMat.begin; it != listaQuantMat.end; ++it) {
+		custoMateriais += it->get_material()->get_custoUnidade() * it->get_quantidade();
+	}
+	for (std::list<Equipe>::iterator it = listaEquipe.begin; it != listaEquipe.end; ++it) {
+		custoEquipes += it->get_custoHora() * horas + it->get_custoMobilizacao();
+	}
+	for (std::list<Equipamento>::iterator it = listaEquipamento.begin; it != listaEquipamento.end; ++it) {
+		custoEquipamentos += it->get_custoHora() * horas;
+	}
+
+    return custoMateriais + custoEquipes + custoEquipamentos;
 }

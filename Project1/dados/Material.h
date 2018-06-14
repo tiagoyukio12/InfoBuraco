@@ -24,7 +24,5 @@ public:
 	void set_custoUnidade(int custoUnidade);
 
 	std::string get_unidade();
-
-	int getCustoUnidade();
 };
 #endif

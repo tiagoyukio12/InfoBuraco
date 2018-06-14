@@ -28,8 +28,3 @@ std::string Material::get_unidade()
 {
 	return unidade;
 }
-
-int Material::getCustoUnidade()
-{
-	return custoUnidade;
-}

@@ -41,6 +41,3 @@ void Equipe::set_custoMobilizacao(int custoMobilizacao)
 {
 	this->custoMobilizacao = custoMobilizacao;
 }
-int Equipe::getCusto(int horas) {
-	return custoMobilizacao + horas * custoHora;
-}
