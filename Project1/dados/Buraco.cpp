@@ -22,6 +22,16 @@ void Buraco::set_id(int id)
 	this->id = id;
 }
 
+Date * Buraco::get_dataPrimeiro()
+{
+	return dataPrimeiro;
+}
+
+std::string Buraco::get_endereco()
+{
+	return endereco;
+}
+
 int Buraco::get_tamanho()
 {
 	return tamanho;
@@ -31,10 +41,20 @@ void Buraco::set_tamanho(int tamanho)
 	this->tamanho = tamanho;
 }
 
+std::string Buraco::get_posRelativa()
+{
+	return posRelativa;
+}
+
 std::list<Notificacao *> Buraco::getListaNotificacao() {
 	return listaNotificacao;
 }
 
 void Buraco::addListaNotificacao(Notificacao * notificacao) {
 	listaNotificacao.push_back(notificacao);
+}
+
+std::string Buraco::get_regiao()
+{
+	return regiao;
 }

@@ -25,6 +25,6 @@ public:
 
 	std::string get_unidade();
 
-	void getCustoUnidade();
+	int getCustoUnidade();
 };
 #endif
