@@ -70,3 +70,30 @@ time_t Usuario::getDataCadastro()
 {
 	return this->dataCadastro;
 }
+
+bool Usuario::permissaoFuncionalidade(std::string nomeDaFuncionalidade)
+{
+	// Varre os Perfis
+	for (auto it = perfis->begin(); it != perfis->end(); ++it)
+	{   // Varre as funcionalidades
+		for (auto jt = (*((*it)->getFuncionalidades())).begin(); jt != (*((*it)->getFuncionalidades())).end(); ++jt)
+		{
+			if ((*jt)->getNome() == nomeDaFuncionalidade) { return true; }
+		}
+	}
+	return false;
+}
+
+bool Usuario::permissaoFuncionalidade(int idDaFuncionalidade)
+{
+	// Varre os Perfis
+	for (auto it = perfis->begin(); it != perfis->end(); ++it)
+	{   // Varre as funcionalidades
+		for (auto jt = (*((*it)->getFuncionalidades())).begin(); jt != (*((*it)->getFuncionalidades())).end(); ++jt)
+		{
+			if ((*jt)->getId() == idDaFuncionalidade) { return true; }
+		}
+	}
+	return false;
+}
+

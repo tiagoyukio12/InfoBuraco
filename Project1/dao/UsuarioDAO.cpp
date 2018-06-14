@@ -38,18 +38,12 @@ std::shared_ptr<Usuario> UsuarioDAO::selecionarPeloLoginESenha(string login, str
 		resultSet = preparedStatement->executeQuery();
 		if (resultSet->next()) {
 			// You can use either numeric offsets...
-			//usuario = new Usuario(); // Memory Leak, esse usuario nunca é deletado
-			usuario.reset(new Usuario());
+			usuario.reset(new Usuario()); // usuario is a shared_ptr, no memory leaks
 			usuario->setId(resultSet->getInt(1)); // getInt(1) returns the first column
 			usuario->setLogin(resultSet->getString(2).c_str());
+			usuario->setSenha(senha.c_str());
 			string tempo = resultSet->getString(3).c_str();
-			int mes = 0;
-			int dia = 0;
-			int ano = 0;
-			int hora = 0;
-			int minuto = 0;
-			int segundo = 0;
-			struct tm t = { 0 };
+			int mes = 0;int dia = 0;int ano = 0;int hora = 0;int minuto = 0;int segundo = 0;struct tm t = { 0 };
 			sscanf(tempo.c_str(), "%d-%d-%d %d:%d:%d", &ano, &mes, &dia, &hora, &minuto, &segundo); //tomar cuidado com os const char*
 			t.tm_year = ano - 1900; 
 			t.tm_mon = mes-1; //desde janeiro
@@ -87,7 +81,6 @@ std::shared_ptr<Usuario> UsuarioDAO::carregarUsuario(std::shared_ptr<Usuario> us
 		connection = mysqldao->getConnection();
 		preparedStatement = connection->prepareStatement("select nome_perfil from usuario_perfis where id_usuario = ?");
 		preparedStatement->setInt(1, usuario->getId());
-		//usuario = new Usuario();
 		resultSet = preparedStatement->executeQuery();		
 		perfis = new vector<Perfil*>();
 		while (resultSet->next()) {
@@ -101,7 +94,7 @@ std::shared_ptr<Usuario> UsuarioDAO::carregarUsuario(std::shared_ptr<Usuario> us
 	{
 		connection->close();
 		log = e.what();
-		perfis= nullptr;
+		perfis = nullptr;
 		usuario = nullptr;
 	}
 	return usuario;

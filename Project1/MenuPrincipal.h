@@ -134,11 +134,13 @@ namespace Project1 {
 	private: System::Void MenuPrincipal_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 private: System::Void bRegional_Click(System::Object^  sender, System::EventArgs^  e) {
-	DashboardRegional ^ form = gcnew DashboardRegional;
+	//(*usuario)->getPerfis()->at(1)->getFuncionalidades()->at(1)->getNome == "Despachante"
+	DashboardRegional ^ form = gcnew DashboardRegional(usuario);
 	form->ShowDialog();
 }
 private: System::Void bDespachante_Click(System::Object^  sender, System::EventArgs^  e) {
-	despachante ^ form = gcnew despachante;
+	//(*usuario)->getPerfis()->at(1)->getFuncionalidades()->at(1)->getNome == "Despachante"
+	despachante ^ form = gcnew despachante(usuario);
 	form->ShowDialog();
 }
 

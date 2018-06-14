@@ -1,4 +1,6 @@
 #pragma once
+#include <memory>
+#include "dominio/seguranca/Usuario.h"
 
 namespace Project1 {
 
@@ -14,8 +16,10 @@ namespace Project1 {
 	/// </summary>
 	public ref class despachante : public System::Windows::Forms::Form
 	{
+	private:
+		std::shared_ptr<Usuario>* usuario = nullptr;
 	public:
-		despachante(void)
+		despachante(std::shared_ptr<Usuario>* usuario) : usuario(usuario)
 		{
 			InitializeComponent();
 			//

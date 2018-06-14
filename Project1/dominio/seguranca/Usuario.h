@@ -31,6 +31,8 @@ class Usuario
 		vector<Perfil*> * getPerfis();
 		time_t getDataCadastro();
 
+		bool permissaoFuncionalidade(std::string nomeDaFuncionalidade);
+		bool Usuario::permissaoFuncionalidade(int idDaFuncionalidade);
 
         virtual ~Usuario(); 
 

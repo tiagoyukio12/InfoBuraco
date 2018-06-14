@@ -1,5 +1,7 @@
 #pragma once
 #include "GerarRelatorio.h"
+#include <memory>
+#include "dominio/seguranca/Usuario.h"
 
 namespace Project1 {
 
@@ -15,8 +17,10 @@ namespace Project1 {
 	/// </summary>
 	public ref class DashboardRegional : public System::Windows::Forms::Form
 	{
+	private: 
+		std::shared_ptr<Usuario> *usuario = nullptr;
 	public:
-		DashboardRegional(void)
+		DashboardRegional(std::shared_ptr<Usuario>* usuario) : usuario(usuario)
 		{
 			InitializeComponent();
 			//

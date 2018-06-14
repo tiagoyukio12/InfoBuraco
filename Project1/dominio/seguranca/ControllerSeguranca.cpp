@@ -10,7 +10,7 @@ std::shared_ptr<Usuario> ControllerSeguranca::logar(string login, string senha)
 {
 	//Usuário Mock
 	std::shared_ptr<Usuario> usuario = nullptr;
-	UsuarioDAO* usuarioDao = new UsuarioDAO();
+	std::shared_ptr <UsuarioDAO> usuarioDao(new UsuarioDAO());
 
 	usuario = usuarioDao->selecionarPeloLoginESenha(login, senha);
 
