@@ -3,6 +3,7 @@
 #include <time.h>
 #include <stdio.h>
 
+
 UsuarioDAO::UsuarioDAO() 
 {
 }
@@ -11,10 +12,10 @@ UsuarioDAO::~UsuarioDAO()
 	
 }
 
-Usuario* UsuarioDAO::selecionarPeloLoginESenha(string login, string senha)
+std::shared_ptr<Usuario> UsuarioDAO::selecionarPeloLoginESenha(string login, string senha)
 {
 	string log;
-	Usuario * usuario = nullptr;
+	std::shared_ptr<Usuario> usuario = nullptr;
 	sql::Connection * connection;
 	sql::Statement* statement;
 	sql::PreparedStatement * preparedStatement;
@@ -37,7 +38,8 @@ Usuario* UsuarioDAO::selecionarPeloLoginESenha(string login, string senha)
 		resultSet = preparedStatement->executeQuery();
 		if (resultSet->next()) {
 			// You can use either numeric offsets...
-			usuario = new Usuario();
+			//usuario = new Usuario(); // Memory Leak, esse usuario nunca é deletado
+			usuario.reset(new Usuario());
 			usuario->setId(resultSet->getInt(1)); // getInt(1) returns the first column
 			usuario->setLogin(resultSet->getString(2).c_str());
 			string tempo = resultSet->getString(3).c_str();
@@ -69,7 +71,7 @@ Usuario* UsuarioDAO::selecionarPeloLoginESenha(string login, string senha)
 	//Avaliar resultado
 	return usuario;
 }
-Usuario* UsuarioDAO::carregarUsuario(Usuario * usuario) 
+std::shared_ptr<Usuario> UsuarioDAO::carregarUsuario(std::shared_ptr<Usuario> usuario)
 {
 	string log;
 	Perfil * perfil = nullptr;

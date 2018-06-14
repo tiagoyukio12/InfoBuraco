@@ -1,4 +1,4 @@
-#include "ControllerSeguranca.h"
+#include "./ControllerSeguranca.h"
 
 ControllerSeguranca::ControllerSeguranca() 
 {
@@ -6,10 +6,10 @@ ControllerSeguranca::ControllerSeguranca()
 ControllerSeguranca::~ControllerSeguranca() 
 {
 }
-Usuario* ControllerSeguranca::logar(string login, string senha)
+std::shared_ptr<Usuario> ControllerSeguranca::logar(string login, string senha)
 {
 	//Usuário Mock
-	Usuario * usuario = nullptr;
+	std::shared_ptr<Usuario> usuario = nullptr;
 	UsuarioDAO* usuarioDao = new UsuarioDAO();
 
 	usuario = usuarioDao->selecionarPeloLoginESenha(login, senha);
@@ -21,12 +21,12 @@ Usuario* ControllerSeguranca::logar(string login, string senha)
 	return usuario;
 	//fim usuário mock
 }
-Usuario* ControllerSeguranca::deslogar(string login)
+std::shared_ptr<Usuario> ControllerSeguranca::deslogar(string login)
 {
-	Usuario * usuario = nullptr;
+	std::shared_ptr<Usuario> usuario = nullptr;
 	return usuario;
 }
-Usuario* ControllerSeguranca::carregarFuncionalidades(Usuario* usuario) 
+std::shared_ptr<Usuario> ControllerSeguranca::carregarFuncionalidades(std::shared_ptr<Usuario> usuario)
 {
 	
 	PerfilDAO * pd = new PerfilDAO();

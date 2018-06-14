@@ -2,6 +2,7 @@
 #include "DashboardRegional.h"
 #include "despachante.h"
 #include "dominio/seguranca/Usuario.h"
+#include <memory>
 
 namespace Project1 {
 
@@ -18,9 +19,9 @@ namespace Project1 {
 	public ref class MenuPrincipal : public System::Windows::Forms::Form
 	{
 	private:
-		Usuario * usuario = nullptr;
+		std::shared_ptr<Usuario> *usuario = nullptr;
 	public:
-		MenuPrincipal(Usuario *usuario) : usuario(usuario)
+		MenuPrincipal(std::shared_ptr<Usuario>* usuario) : usuario(usuario)
 		{
 			InitializeComponent();
 		}

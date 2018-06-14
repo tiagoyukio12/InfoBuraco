@@ -7,6 +7,7 @@
 #include <ctime>
 #include <iostream>
 #include <iomanip> //std::put_time
+#include <memory> // unique_ptr
 
 // Includes Nossos
 #include "Janela4.h"
@@ -138,6 +139,7 @@ namespace Project1 {
 			this->tb_login->Name = L"tb_login";
 			this->tb_login->Size = System::Drawing::Size(125, 20);
 			this->tb_login->TabIndex = 4;
+			this->tb_login->Text = L"um_aluno";
 			// 
 			// lb_login
 			// 
@@ -166,6 +168,7 @@ namespace Project1 {
 			this->tb_senha->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->tb_senha->Size = System::Drawing::Size(125, 20);
 			this->tb_senha->TabIndex = 7;
+			this->tb_senha->Text = L"12345";
 			this->tb_senha->UseSystemPasswordChar = true;
 			// 
 			// bt_validar
@@ -237,26 +240,17 @@ private: System::Void bt_limpar_Click(System::Object^  sender, System::EventArgs
 
 }
 private: System::Void bt_validar_Click(System::Object^  sender, System::EventArgs^  e) {
-	if ((this->Login == String::Empty) && (this->Senha == String::Empty)) {
-		this->tb_mensagem->AppendText("\r\nCampos de Login e senha vazios");
-		tb_login->BackColor = System::Drawing::Color::Yellow;
-		tb_senha->BackColor = System::Drawing::Color::Yellow;
-		MessageBox::Show("Preencha o login e senha!");
+	try
+	{
+		validateEmptyInput();
 	}
-	else if (this->Login == String::Empty) {
-		this->tb_mensagem->AppendText("\r\nCampo de Login Vazio");
-		tb_senha->BackColor = System::Drawing::Color::Yellow;
-	}
-	else if (this->Senha == String::Empty) {
-		this->tb_mensagem->AppendText("\r\nCampo de Senha Vazio");
-		tb_senha->BackColor = System::Drawing::Color::Yellow;
-	}
-	else {
-		ControllerSeguranca * seguranca = new ControllerSeguranca();
+	catch (std::exception e) { return; // Validacao falhou, entao o metodo nao continua
+	} 
+		std::unique_ptr<ControllerSeguranca> seguranca(new ControllerSeguranca);
 		std::string login = msclr::interop::marshal_as<std::string>(this->Login);
 		std::string senha = msclr::interop::marshal_as<std::string>(this->Senha);
 
-		Usuario* usuario = seguranca->logar(login, senha);
+		std::shared_ptr<Usuario> usuario = seguranca->logar(login, senha);
 		if (usuario != nullptr) {
 			time_t dt = usuario->getDataCadastro();
 			std::stringstream ss;
@@ -267,18 +261,36 @@ private: System::Void bt_validar_Click(System::Object^  sender, System::EventArg
 
 			usuario = seguranca->carregarFuncionalidades(usuario);
 
-			MenuPrincipal^ tu = gcnew MenuPrincipal(usuario);
-			// TelaDoUsuario^ tu = gcnew TelaDoUsuario(usuario); // Versao do Michelet
+			MenuPrincipal^ tu = gcnew MenuPrincipal(&usuario);
 			this->Hide();
 			tu->Show();
-
 
 		}
 		else {
 			MessageBox::Show("Usuário ou senha inválidos");
 		}
-	}
-}
+	
+} /// bt_validar_click
+		 inline void validateEmptyInput()
+		 {
+			 if ((this->Login == String::Empty) && (this->Senha == String::Empty)) {
+				 this->tb_mensagem->AppendText("\r\nCampos de Login e senha vazios");
+				 tb_login->BackColor = System::Drawing::Color::Yellow;
+				 tb_senha->BackColor = System::Drawing::Color::Yellow;
+				 MessageBox::Show("Preencha o login e senha!");
+				 throw std::exception("Campos de Login e senha vazios");
+			 }
+			 else if (this->Login == String::Empty) {
+				 this->tb_mensagem->AppendText("\r\nCampo de Login Vazio");
+				 tb_senha->BackColor = System::Drawing::Color::Yellow;
+				 throw std::exception("Campos de Login vazio");
+			 }
+			 else if (this->Senha == String::Empty) {
+				 this->tb_mensagem->AppendText("\r\nCampo de Senha Vazio");
+				 tb_senha->BackColor = System::Drawing::Color::Yellow;
+				 throw std::exception("Campos de Senha vazio");
+			 }
+		 }
 private: System::Void bt_janela2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void bt_janela3_Click(System::Object^  sender, System::EventArgs^  e) {

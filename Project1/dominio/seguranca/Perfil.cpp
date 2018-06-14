@@ -1,4 +1,4 @@
-#include "Perfil.h"
+#include "./Perfil.h"
 
 
 vector<Funcionalidade*>* Perfil::getFuncionalidades()
