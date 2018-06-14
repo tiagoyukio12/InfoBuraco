@@ -4,6 +4,7 @@
 #include "../dominio/seguranca/Usuario.h"
 #include "PerfilDAO.h" //Dependency Generated Source:UsuarioDAO Target:PerfilDAO
 #include "MySQLDAO.h"
+#include <memory>
 
 class UsuarioDAO
 {
@@ -13,14 +14,14 @@ class UsuarioDAO
 
         virtual ~UsuarioDAO(); 
 
-        Usuario* selecionarPeloId(int id); 
-
-        Usuario* selecionarPeloLogin(string login); 
+		//Metodos nao implementados
+		///std::shared_ptr<Usuario> selecionarPeloId(int id);
+		///std::shared_ptr<Usuario> selecionarPeloLogin(string login);
 
         //<p>Retorna o objeto Usuário junto com os perfis dele.</p>
-        Usuario* selecionarPeloLoginESenha(string login, string senha);
+		std::shared_ptr<Usuario> selecionarPeloLoginESenha(string login, string senha);
 
-        Usuario* carregarUsuario(Usuario* id); 
+		std::shared_ptr<Usuario> carregarUsuario(std::shared_ptr<Usuario> usuario);
 
 };  //end class UsuarioDAO
 

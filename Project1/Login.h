@@ -250,7 +250,7 @@ private: System::Void bt_validar_Click(System::Object^  sender, System::EventArg
 		std::string login = msclr::interop::marshal_as<std::string>(this->Login);
 		std::string senha = msclr::interop::marshal_as<std::string>(this->Senha);
 
-		Usuario* usuario = seguranca->logar(login, senha);
+		std::shared_ptr<Usuario> usuario = seguranca->logar(login, senha);
 		if (usuario != nullptr) {
 			time_t dt = usuario->getDataCadastro();
 			std::stringstream ss;
@@ -261,7 +261,7 @@ private: System::Void bt_validar_Click(System::Object^  sender, System::EventArg
 
 			usuario = seguranca->carregarFuncionalidades(usuario);
 
-			MenuPrincipal^ tu = gcnew MenuPrincipal(usuario);
+			MenuPrincipal^ tu = gcnew MenuPrincipal(&usuario);
 			this->Hide();
 			tu->Show();
 

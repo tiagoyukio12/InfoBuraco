@@ -9,6 +9,7 @@ private:
 	int ano;
 public:
 	Date(int dia, int mes, int ano);
+	Date();
 	~Date();
 
 	// Retorna data no formato dd/mm/yyyy

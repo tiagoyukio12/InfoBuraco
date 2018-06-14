@@ -2,7 +2,7 @@
 #define PERFIL_H
 #include <vector>
 #include <iostream>
-#include "Funcionalidade.h"
+#include "./Funcionalidade.h"
 
 using namespace std;
 

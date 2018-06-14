@@ -1,14 +1,12 @@
 #ifndef USUARIO_H
 #define USUARIO_H
-#include "Perfil.h"
+#include "./Perfil.h"
 #include <ctime>
 
 class Usuario
 {
 
     private:
-
-
         vector <Perfil*> * perfis;
         string login;
 		string senha;

@@ -9,15 +9,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{1cdf8a63-94dc-40b1-8483-ed278ded9a94}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI Source">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Source">
-      <UniqueIdentifier>{55cc52ac-5e33-4d19-a51b-7c20c6832c78}</UniqueIdentifier>
     </Filter>
     <Filter Include="DAO">
       <UniqueIdentifier>{9960e9b9-c1a1-40fb-ad5f-295d761f7f76}</UniqueIdentifier>
@@ -27,6 +21,12 @@
     </Filter>
     <Filter Include="Class">
       <UniqueIdentifier>{0e3e02ff-2464-4a17-8886-6ac82d962c0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DAO\Source">
+      <UniqueIdentifier>{55cc52ac-5e33-4d19-a51b-7c20c6832c78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DAO\Header Files">
+      <UniqueIdentifier>{1cdf8a63-94dc-40b1-8483-ed278ded9a94}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,16 +55,16 @@
       <Filter>UI Source</Filter>
     </ClCompile>
     <ClCompile Include="dominio\seguranca\Usuario.cpp">
-      <Filter>Source</Filter>
+      <Filter>DAO\Source</Filter>
     </ClCompile>
     <ClCompile Include="dominio\seguranca\Perfil.cpp">
-      <Filter>Source</Filter>
+      <Filter>DAO\Source</Filter>
     </ClCompile>
     <ClCompile Include="dominio\seguranca\Funcionalidade.cpp">
-      <Filter>Source</Filter>
+      <Filter>DAO\Source</Filter>
     </ClCompile>
     <ClCompile Include="dominio\seguranca\ControllerSeguranca.cpp">
-      <Filter>Source</Filter>
+      <Filter>DAO\Source</Filter>
     </ClCompile>
     <ClCompile Include="dao\FuncionalidadeDAO.cpp">
       <Filter>DAO</Filter>
@@ -120,9 +120,6 @@
     <ClCompile Include="dados\Telas.cpp">
       <Filter>Class Source</Filter>
     </ClCompile>
-    <ClCompile Include="dados\Usuario.cpp">
-      <Filter>Class Source</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Janela4.h">
@@ -147,16 +144,16 @@
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="dominio\seguranca\Perfil.h">
-      <Filter>Header Files</Filter>
+      <Filter>DAO\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dominio\seguranca\Funcionalidade.h">
-      <Filter>Header Files</Filter>
+      <Filter>DAO\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dominio\seguranca\ControllerSeguranca.h">
-      <Filter>Header Files</Filter>
+      <Filter>DAO\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dominio\seguranca\Usuario.h">
-      <Filter>Header Files</Filter>
+      <Filter>DAO\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dao\FuncionalidadeDAO.h">
       <Filter>DAO</Filter>
@@ -213,9 +210,6 @@
       <Filter>Class</Filter>
     </ClInclude>
     <ClInclude Include="dados\Telas.h">
-      <Filter>Class</Filter>
-    </ClInclude>
-    <ClInclude Include="dados\Usuario.h">
       <Filter>Class</Filter>
     </ClInclude>
   </ItemGroup>

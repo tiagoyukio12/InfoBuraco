@@ -1,4 +1,4 @@
-#include "Funcionalidade.h"
+#include "./Funcionalidade.h"
 //Begin section for file Funcionalidade.cpp
 //TODO: Add definitions that you want preserved
 //End section for file Funcionalidade.cpp

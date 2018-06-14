@@ -8,6 +8,9 @@ Date::Date(int dia, int mes, int ano)
 	this->ano = ano;
 }
 
+Date::Date()
+{}
+
 Date::~Date()
 {
 }

@@ -4,6 +4,7 @@
 #include "Usuario.h"
 #include "../../dao/UsuarioDAO.h" //Dependency Generated Source:ControllerSeguranca Target:UsuarioDAO
 #include "../../dao/PerfilDAO.h"
+#include <memory>
 
 class ControllerSeguranca
 {
@@ -11,9 +12,9 @@ class ControllerSeguranca
 
         ControllerSeguranca(); 
         virtual ~ControllerSeguranca(); 
-        Usuario* logar(string login, string senha);
-        Usuario* deslogar(string login);
-        Usuario* carregarFuncionalidades(Usuario * usuario); 
+		std::shared_ptr<Usuario> logar(string login, string senha);
+		std::shared_ptr<Usuario> deslogar(string login);
+		std::shared_ptr<Usuario> carregarFuncionalidades(std::shared_ptr<Usuario> usuario);
 
 };  //end class ControllerSeguranca
 
