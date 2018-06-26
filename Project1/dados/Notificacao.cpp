@@ -11,6 +11,21 @@ Notificacao::~Notificacao()
 {
 }
 
+std::string Notificacao::get_nomeCidadao()
+{
+	return nomeCidadao;
+}
+
+std::string Notificacao::get_contato()
+{
+	return contato;
+}
+
+Date * Notificacao::get_data()
+{
+	return data;
+}
+
 std::list<Foto *> Notificacao::getListaFoto() {
 	return listaFoto;
 }

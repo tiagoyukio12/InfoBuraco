@@ -26,7 +26,7 @@ private:
 	int prioridade;
 	int custoTotal;
 	std::list<Foto *> listaFoto;
-	std::list<QuantidadeMaterial *> listaQuantidadeMaterial;
+	std::list<QuantidadeMaterial *> listaQuantMat;
 public:
 	OrdemDeServico(int id, Date * dataInicio, Date * dataFim, int estimativaHoras, int estimativaCusto, bool finalizado, Buraco * buraco, int prioridade, int custoTotal);
 
@@ -88,6 +88,6 @@ public:
 
 	void addListaQuantidadeMaterial(QuantidadeMaterial * quantidadeMaterial);
 
-	int calcularCustoTotal();
+	int calcularCustoTotal(int horas);
 };
 #endif
