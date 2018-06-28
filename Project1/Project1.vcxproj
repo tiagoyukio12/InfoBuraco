@@ -24,7 +24,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>Project1</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
     <ProjectName>Projeto</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -91,12 +91,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp14</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\cpp_libs\infoburaco_mysql\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\cpp_libs\infoburaco_mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -104,37 +105,39 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\pcs3443\mysql-connector-c++-8.0.11-windows-x86-64bit\include\jdbc;D:\pcs3443\boost_1_67_0\boost;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\cpp_libs\infoburaco_mysql\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>mysqlcppconn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
-      <AdditionalLibraryDirectories>D:\pcs3443\mysql-connector-c++-8.0.11-windows-x86-64bit\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\cpp_libs\infoburaco_mysql\lib64\vs14;D:\pcs3443\mysql-connector-c++-8.0.11-windows-x86-64bit\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <LanguageStandard>stdcpp14</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\cpp_libs\infoburaco_mysql\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\cpp_libs\infoburaco_mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <LanguageStandard>stdcpp14</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\cpp_libs\infoburaco_mysql\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\cpp_libs\infoburaco_mysql\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -156,17 +159,11 @@
     <ClCompile Include="dados\Notificacao.cpp" />
     <ClCompile Include="dados\OrdemDeServico.cpp" />
     <ClCompile Include="dados\QuantidadeMaterial.cpp" />
-    <ClCompile Include="dao\FuncionalidadeDAO.cpp" />
-    <ClCompile Include="dao\GerenciadorDePerfisDeUsuario.cpp" />
     <ClCompile Include="dao\MySQLDAO.cpp" />
-    <ClCompile Include="dao\PerfilDAO.cpp" />
+    <ClCompile Include="dao\Usuario.cpp" />
     <ClCompile Include="dao\UsuarioDAO.cpp" />
     <ClCompile Include="DashboardRegional.cpp" />
     <ClCompile Include="despachante.cpp" />
-    <ClCompile Include="dominio\seguranca\ControllerSeguranca.cpp" />
-    <ClCompile Include="dominio\seguranca\Funcionalidade.cpp" />
-    <ClCompile Include="dominio\seguranca\Perfil.cpp" />
-    <ClCompile Include="dominio\seguranca\Usuario.cpp" />
     <ClCompile Include="GerarRelatorio.cpp" />
     <ClCompile Include="Janela4.cpp" />
     <ClCompile Include="MenuPrincipal.cpp" />
@@ -187,10 +184,8 @@
     <ClInclude Include="dados\Notificacao.h" />
     <ClInclude Include="dados\OrdemDeServico.h" />
     <ClInclude Include="dados\QuantidadeMaterial.h" />
-    <ClInclude Include="dao\FuncionalidadeDAO.h" />
-    <ClInclude Include="dao\GerenciadorDePerfisDeUsuario.h" />
     <ClInclude Include="dao\MySQLDAO.h" />
-    <ClInclude Include="dao\PerfilDAO.h" />
+    <ClInclude Include="dao\Usuario.h" />
     <ClInclude Include="dao\UsuarioDAO.h" />
     <ClInclude Include="DashboardRegional.h">
       <FileType>CppForm</FileType>
@@ -198,10 +193,6 @@
     <ClInclude Include="despachante.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="dominio\seguranca\ControllerSeguranca.h" />
-    <ClInclude Include="dominio\seguranca\Funcionalidade.h" />
-    <ClInclude Include="dominio\seguranca\Perfil.h" />
-    <ClInclude Include="dominio\seguranca\Usuario.h" />
     <ClInclude Include="GerarRelatorio.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -239,6 +230,9 @@
     <EmbeddedResource Include="PopupRelatorio.resx">
       <DependentUpon>PopupRelatorio.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Query Readme.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

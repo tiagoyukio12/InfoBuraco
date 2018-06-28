@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "dominio/seguranca/Usuario.h"
+#include "dao/Usuario.h"
 
 namespace Project1 {
 
@@ -17,11 +17,12 @@ namespace Project1 {
 	public ref class despachante : public System::Windows::Forms::Form
 	{
 	private:
-		std::shared_ptr<Usuario>* usuario = nullptr;
+		Usuario *myUser = nullptr;
 	public:
-		despachante(std::shared_ptr<Usuario>* usuario)
+		despachante(Usuario *User) : myUser(User)
 		{
-			this->usuario = new std::shared_ptr<Usuario>(*usuario);
+			if (!myUser->temPermissao("despachante")) { MessageBox::Show("Você não tem permissão para isso."); delete this; }
+			else { this->ShowDialog(); }
 			InitializeComponent();
 			//
 			//TODO: Adicione o código do construtor aqui

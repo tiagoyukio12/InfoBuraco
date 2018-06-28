@@ -13,8 +13,8 @@
 #include "Janela4.h"
 #include "CaixaDeDialogo.h"
 #include "MenuPrincipal.h"
-#include "dominio/seguranca/ControllerSeguranca.h"
-#include "dominio/seguranca/Usuario.h"
+#include "dao/UsuarioDAO.h"
+#include "dao/Usuario.h"
 
 // Include de Bibliotecas
 #include <msclr\marshal_cppstd.h>
@@ -139,7 +139,7 @@ namespace Project1 {
 			this->tb_login->Name = L"tb_login";
 			this->tb_login->Size = System::Drawing::Size(125, 20);
 			this->tb_login->TabIndex = 4;
-			this->tb_login->Text = L"um_aluno";
+			this->tb_login->Text = L"admin";
 			// 
 			// lb_login
 			// 
@@ -168,7 +168,7 @@ namespace Project1 {
 			this->tb_senha->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->tb_senha->Size = System::Drawing::Size(125, 20);
 			this->tb_senha->TabIndex = 7;
-			this->tb_senha->Text = L"12345";
+			this->tb_senha->Text = L"admin";
 			this->tb_senha->UseSystemPasswordChar = true;
 			// 
 			// bt_validar
@@ -241,36 +241,31 @@ private: System::Void bt_limpar_Click(System::Object^  sender, System::EventArgs
 }
 
 private: System::Void bt_validar_Click(System::Object^  sender, System::EventArgs^  e) {
-	try
-	{
-		validateEmptyInput();
-	}
-	catch (std::exception e) { return; // Validacao falhou, entao o metodo nao continua
-	} 
-		std::unique_ptr<ControllerSeguranca> seguranca(new ControllerSeguranca);
-		std::string login = msclr::interop::marshal_as<std::string>(this->Login);
-		std::string senha = msclr::interop::marshal_as<std::string>(this->Senha);
+		// Se a Validacao falhar, entao o metodo nao continua
+		try	{validateEmptyInput(); } catch (std::exception e) { return; } 
+		try
+		{
+			std::string login = msclr::interop::marshal_as<std::string>(this->Login);
+			std::string senha = msclr::interop::marshal_as<std::string>(this->Senha);
 
-		std::shared_ptr<Usuario> usuario = seguranca->logar(login, senha);
-		if (usuario != nullptr) {
-			time_t dt = usuario->getDataCadastro();
-			std::stringstream ss;
-			ss << std::put_time(std::localtime(&dt), "%Y-%m-%d");
-			string d = ss.str();
-			MessageBox::Show("Usuário: " + msclr::interop::marshal_as<String^>(usuario->getLogin()) +
-				" logado com sucesso, cadastrado em: " + msclr::interop::marshal_as<String^>(d));
+			UsuarioDAO *userDAO = new UsuarioDAO();
+			Usuario *User = userDAO->getUsuario(login, senha);
 
-			usuario = seguranca->carregarFuncionalidades(usuario);
-			MenuPrincipal^ tu = gcnew MenuPrincipal(&usuario);
-			this->Hide();
-			tu->Show();
+			std::string Mensagem = "Usuário: " + (User->getUsername()) + " logado com sucesso\n  Permissoes:\n";
+			for (std::string perm : User->getPermissoes())
+			{
+				Mensagem += "   - " + perm + "\n";
+			}
+				MessageBox::Show(msclr::interop::marshal_as<String^>(Mensagem));
 
+				MenuPrincipal^ tu = gcnew MenuPrincipal(User);
+				this->Hide();
+				tu->Show();
 		}
-		else {
-			MessageBox::Show("Usuário ou senha inválidos");
-		}
-	
+		catch (std::exception e) { MessageBox::Show(msclr::interop::marshal_as<String^>(e.what())); }
+		//catch (std::exception e) { MessageBox::Show("Usuário ou senha inválidos"); }
 } /// bt_validar_click
+
 		 inline void validateEmptyInput()
 		 {
 			 if ((this->Login == String::Empty) && (this->Senha == String::Empty)) {

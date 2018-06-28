@@ -1,7 +1,9 @@
 #pragma once
 #include "GerarRelatorio.h"
 #include <memory>
-#include "dominio/seguranca/Usuario.h"
+#include "dao/Usuario.h"
+
+#include <msclr\marshal_cppstd.h>
 
 namespace Project1 {
 
@@ -17,12 +19,13 @@ namespace Project1 {
 	/// </summary>
 	public ref class DashboardRegional : public System::Windows::Forms::Form
 	{
-	private: 
-		std::shared_ptr<Usuario> *usuario = nullptr;
+	private:
+		Usuario *myUser = nullptr;
 	public:
-		DashboardRegional(std::shared_ptr<Usuario>* usuario)
+		DashboardRegional(Usuario *User) : myUser(User)
 		{
-			this->usuario = new std::shared_ptr<Usuario>(*usuario);
+			if (!myUser->temPermissao("regional")) { MessageBox::Show("Você não tem permissão para isso."); delete this; }
+			else { this->ShowDialog(); }
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -286,20 +289,36 @@ namespace Project1 {
 	}
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
-private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void bGerRel_Click(System::Object^  sender, System::EventArgs^  e) {
-	GerarRelatorio ^ form = gcnew GerarRelatorio;
-	form->ShowDialog();
-}
-private: System::Void bSair_Click(System::Object^  sender, System::EventArgs^  e) {
-	this->Close();
-}
-private: System::Void listView2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void groupBox1_Enter(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
-}
-};
+	private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void bGerRel_Click(System::Object^  sender, System::EventArgs^  e) {
+		GerarRelatorio ^ form = gcnew GerarRelatorio;
+		form->ShowDialog();
+	}
+	private: System::Void bSair_Click(System::Object^  sender, System::EventArgs^  e) {
+		this->Close();
+	}
+	private: System::Void listView2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void groupBox1_Enter(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void DashboardRegional_Load(System::Object^  sender, System::EventArgs^  e) {
+		using std::string;
+		sql::PreparedStatement *Query = myUser->prepareQuery("SELECT id_OS, data_inicio from OS", "regional");
+		sql::ResultSet* resultSet = Query->executeQuery();
+
+		// Variaveis Temporarias para processar o query...
+		int id = 0;
+		std::string tempo = "";
+
+		while (resultSet->next()) {
+			id = resultSet->getInt("id_OS");
+			tempo = resultSet->getString("data_inicio").c_str();
+
+			this->listView1->Items->Add(System::Convert::ToString(id), gcnew String(tempo.c_str()));
+		}
+	}
+	};
 }

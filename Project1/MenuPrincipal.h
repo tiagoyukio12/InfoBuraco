@@ -1,7 +1,7 @@
 #pragma once
 #include "DashboardRegional.h"
 #include "despachante.h"
-#include "dominio/seguranca/Usuario.h"
+#include "dao/Usuario.h"
 #include <memory>
 
 namespace Project1 {
@@ -19,11 +19,10 @@ namespace Project1 {
 	public ref class MenuPrincipal : public System::Windows::Forms::Form
 	{
 	private:
-		std::shared_ptr<Usuario>* usuario = nullptr;
+		Usuario *myUser;
 	public:
-		MenuPrincipal(std::shared_ptr<Usuario>* usuario)
+		MenuPrincipal(Usuario *User) : myUser(User)
 		{
-			this->usuario = new std::shared_ptr<Usuario>(*usuario);
 			InitializeComponent();
 		}
 
@@ -33,6 +32,7 @@ namespace Project1 {
 		/// </summary>
 		~MenuPrincipal()
 		{
+			delete myUser;
 			if (components)
 			{
 				delete components;
@@ -135,14 +135,10 @@ namespace Project1 {
 	private: System::Void MenuPrincipal_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 private: System::Void bRegional_Click(System::Object^  sender, System::EventArgs^  e) {
-	if ((*usuario)->permissaoFuncionalidade("Regional") == false) { MessageBox::Show("Você não tem permissão para isso."); return; }
-	DashboardRegional ^ form = gcnew DashboardRegional(usuario);
-	form->ShowDialog();
+	DashboardRegional ^ form = gcnew DashboardRegional(myUser);
 }
 private: System::Void bDespachante_Click(System::Object^  sender, System::EventArgs^  e) {
-	if ((*usuario)->permissaoFuncionalidade("Despachante") == false) { MessageBox::Show("Você não tem permissão para isso."); return; }
-	despachante ^ form = gcnew despachante(usuario);
-	form->ShowDialog();
+	despachante ^ form = gcnew despachante(myUser);
 }
 
 private: System::Void bSair_Click(System::Object^  sender, System::EventArgs^  e) {

@@ -1,30 +1,36 @@
 #ifndef USUARIODAO_H
 #define USUARIODAO_H
 
-#include "../dominio/seguranca/Usuario.h"
-#include "PerfilDAO.h" //Dependency Generated Source:UsuarioDAO Target:PerfilDAO
+#include <string>
+#include <exception>
 #include "MySQLDAO.h"
-#include <memory>
+#include "Usuario.h"
+
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/resultset.h>
+#include <cppconn/statement.h>
+#include <cppconn/prepared_statement.h>
 
 class UsuarioDAO
 {
     public:
 
-        UsuarioDAO(); 
+		UsuarioDAO();
+
 
         virtual ~UsuarioDAO(); 
 
-		//Metodos nao implementados
-		///std::shared_ptr<Usuario> selecionarPeloId(int id);
-		///std::shared_ptr<Usuario> selecionarPeloLogin(string login);
+        //Retorna o objeto Usuario junto com os perfis dele.
+		Usuario* getUsuario(std::string login, std::string senha);
 
-        //<p>Retorna o objeto Usuário junto com os perfis dele.</p>
-		std::shared_ptr<Usuario> selecionarPeloLoginESenha(string login, string senha);
+		void createUsuario(std::string login, std::string senha);
 
-		std::shared_ptr<Usuario> carregarUsuario(std::shared_ptr<Usuario> usuario);
+private:
 
+
+	std::string seed = "Info buraco 2018";
 };  //end class UsuarioDAO
-
 
 
 #endif

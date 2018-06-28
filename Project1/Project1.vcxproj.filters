@@ -22,12 +22,6 @@
     <Filter Include="Class">
       <UniqueIdentifier>{0e3e02ff-2464-4a17-8886-6ac82d962c0f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DAO\Source">
-      <UniqueIdentifier>{55cc52ac-5e33-4d19-a51b-7c20c6832c78}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DAO\Header Files">
-      <UniqueIdentifier>{1cdf8a63-94dc-40b1-8483-ed278ded9a94}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyForm.cpp">
@@ -54,40 +48,10 @@
     <ClCompile Include="PopupRelatorio.cpp">
       <Filter>UI Source</Filter>
     </ClCompile>
-    <ClCompile Include="dominio\seguranca\Usuario.cpp">
-      <Filter>DAO\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="dominio\seguranca\Perfil.cpp">
-      <Filter>DAO\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="dominio\seguranca\Funcionalidade.cpp">
-      <Filter>DAO\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="dominio\seguranca\ControllerSeguranca.cpp">
-      <Filter>DAO\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="dao\FuncionalidadeDAO.cpp">
-      <Filter>DAO</Filter>
-    </ClCompile>
-    <ClCompile Include="dao\GerenciadorDePerfisDeUsuario.cpp">
-      <Filter>DAO</Filter>
-    </ClCompile>
-    <ClCompile Include="dao\MySQLDAO.cpp">
-      <Filter>DAO</Filter>
-    </ClCompile>
-    <ClCompile Include="dao\PerfilDAO.cpp">
-      <Filter>DAO</Filter>
-    </ClCompile>
-    <ClCompile Include="dao\UsuarioDAO.cpp">
-      <Filter>DAO</Filter>
-    </ClCompile>
     <ClCompile Include="dados\Buraco.cpp">
       <Filter>Class Source</Filter>
     </ClCompile>
     <ClCompile Include="dados\Controlador.cpp">
-      <Filter>Class Source</Filter>
-    </ClCompile>
-    <ClCompile Include="dados\DAO.cpp">
       <Filter>Class Source</Filter>
     </ClCompile>
     <ClCompile Include="dados\Date.cpp">
@@ -114,11 +78,14 @@
     <ClCompile Include="dados\QuantidadeMaterial.cpp">
       <Filter>Class Source</Filter>
     </ClCompile>
-    <ClCompile Include="dados\serviçoDeEmail.cpp">
-      <Filter>Class Source</Filter>
+    <ClCompile Include="dao\MySQLDAO.cpp">
+      <Filter>DAO</Filter>
     </ClCompile>
-    <ClCompile Include="dados\Telas.cpp">
-      <Filter>Class Source</Filter>
+    <ClCompile Include="dao\Usuario.cpp">
+      <Filter>DAO</Filter>
+    </ClCompile>
+    <ClCompile Include="dao\UsuarioDAO.cpp">
+      <Filter>DAO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,33 +110,6 @@
     <ClInclude Include="PopupRelatorio.h">
       <Filter>UI</Filter>
     </ClInclude>
-    <ClInclude Include="dominio\seguranca\Perfil.h">
-      <Filter>DAO\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="dominio\seguranca\Funcionalidade.h">
-      <Filter>DAO\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="dominio\seguranca\ControllerSeguranca.h">
-      <Filter>DAO\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="dominio\seguranca\Usuario.h">
-      <Filter>DAO\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="dao\FuncionalidadeDAO.h">
-      <Filter>DAO</Filter>
-    </ClInclude>
-    <ClInclude Include="dao\GerenciadorDePerfisDeUsuario.h">
-      <Filter>DAO</Filter>
-    </ClInclude>
-    <ClInclude Include="dao\MySQLDAO.h">
-      <Filter>DAO</Filter>
-    </ClInclude>
-    <ClInclude Include="dao\PerfilDAO.h">
-      <Filter>DAO</Filter>
-    </ClInclude>
-    <ClInclude Include="dao\UsuarioDAO.h">
-      <Filter>DAO</Filter>
-    </ClInclude>
     <ClInclude Include="Login.h">
       <Filter>UI</Filter>
     </ClInclude>
@@ -177,9 +117,6 @@
       <Filter>Class</Filter>
     </ClInclude>
     <ClInclude Include="dados\Controlador.h">
-      <Filter>Class</Filter>
-    </ClInclude>
-    <ClInclude Include="dados\DAO.h">
       <Filter>Class</Filter>
     </ClInclude>
     <ClInclude Include="dados\Date.h">
@@ -206,14 +143,14 @@
     <ClInclude Include="dados\QuantidadeMaterial.h">
       <Filter>Class</Filter>
     </ClInclude>
-    <ClInclude Include="dados\serviçoDeEmail.h">
-      <Filter>Class</Filter>
+    <ClInclude Include="dao\MySQLDAO.h">
+      <Filter>DAO</Filter>
     </ClInclude>
-    <ClInclude Include="dados\Telas.h">
-      <Filter>Class</Filter>
+    <ClInclude Include="dao\Usuario.h">
+      <Filter>DAO</Filter>
     </ClInclude>
-    <ClInclude Include="dados\WrapperUser.h">
-      <Filter>UI</Filter>
+    <ClInclude Include="dao\UsuarioDAO.h">
+      <Filter>DAO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -241,5 +178,8 @@
     <EmbeddedResource Include="Login.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Query Readme.txt" />
   </ItemGroup>
 </Project>
