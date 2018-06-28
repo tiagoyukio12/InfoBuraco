@@ -7,18 +7,18 @@ class Equipamento
 {
 private:
 	std::string nome;
-	int custoHora;
+	float custoHora;
 public:
 	Equipamento();
 
-	Equipamento(std::string nome, int custoHora);
+	Equipamento(std::string nome, float custoHora);
 
 	~Equipamento();
 
 	std::string get_nome();
 
-	int get_custoHora();
+	float get_custoHora();
 
-	void set_custoHora(int custoHora);
+	void set_custoHora(float custoHora);
 };
 #endif

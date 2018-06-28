@@ -1,7 +1,7 @@
 #include "OrdemDeServico.h"
 
 
-OrdemDeServico::OrdemDeServico(int id, Date * dataInicio, Date * dataFim, int estimativaHoras, int estimativaCusto, bool finalizado, Buraco * buraco, int prioridade, int custoTotal)
+OrdemDeServico::OrdemDeServico(int id, Date * dataInicio, Date * dataFim, float estimativaHoras, float estimativaCusto, bool finalizado, Buraco * buraco, int prioridade, float custoTotal)
 {
 	this->id = id;
 	this->dataInicio = dataInicio;
@@ -40,20 +40,20 @@ void OrdemDeServico::set_dataFim(Date * dataFim)
 {
     this->dataFim = dataFim;
 }
-int OrdemDeServico::get_estimativaHoras() 
+float OrdemDeServico::get_estimativaHoras() 
 {
     return estimativaHoras;
 }
-void OrdemDeServico::set_estimativaHoras(int estimativaHoras) 
+void OrdemDeServico::set_estimativaHoras(float estimativaHoras) 
 {
     this->estimativaHoras = estimativaHoras;
 	estimativaCusto = calcularCustoTotal(estimativaHoras);
 }
-int OrdemDeServico::get_estimativaCusto() 
+float OrdemDeServico::get_estimativaCusto() 
 {
     return estimativaCusto;
 }
-void OrdemDeServico::set_estimativaCusto(int estimativaCusto) 
+void OrdemDeServico::set_estimativaCusto(float estimativaCusto) 
 {
     this->estimativaCusto = estimativaCusto;
 }
@@ -105,11 +105,11 @@ void OrdemDeServico::set_prioridade(int prioridade)
 {
     this->prioridade = prioridade;
 }
-int OrdemDeServico::get_custoTotal() 
+float OrdemDeServico::get_custoTotal() 
 {
     return custoTotal;
 }
-void OrdemDeServico::set_custoTotal(int custoTotal) 
+void OrdemDeServico::set_custoTotal(float custoTotal) 
 {
     this->custoTotal = custoTotal;
 }
@@ -129,10 +129,10 @@ void OrdemDeServico::addListaQuantidadeMaterial(QuantidadeMaterial * quantidadeM
 {
 	listaQuantMat.push_back(quantidadeMaterial);
 }
-int OrdemDeServico::calcularCustoTotal(int horas) 
+float OrdemDeServico::calcularCustoTotal(float horas) 
 {
 	// TODO: algoritmo para calcular custo a partir de materiais, equipamentos, etc.
-	int custoMateriais = 0, custoEquipes = 0, custoEquipamentos = 0;
+	float custoMateriais = 0, custoEquipes = 0, custoEquipamentos = 0;
 	
 	for (std::list<QuantidadeMaterial *>::iterator it = listaQuantMat.begin(); it != listaQuantMat.end(); ++it) {
 		custoMateriais += (*it)->get_material()->get_custoUnidade() * (*it)->get_quantidade();

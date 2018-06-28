@@ -4,18 +4,18 @@
 QuantidadeMaterial::QuantidadeMaterial()
 {
 }
-QuantidadeMaterial::QuantidadeMaterial(int quantidade, Material * material) {
+QuantidadeMaterial::QuantidadeMaterial(float quantidade, Material * material) {
 	this->quantidade = quantidade;
 	this->material = material;
 }
 QuantidadeMaterial::~QuantidadeMaterial()
 {
 }
-int QuantidadeMaterial::get_quantidade()
+float QuantidadeMaterial::get_quantidade()
 {
 	return quantidade;
 }
-void QuantidadeMaterial::set_quantidade(int quantidade)
+void QuantidadeMaterial::set_quantidade(float quantidade)
 {
 	this->quantidade = quantidade;
 }

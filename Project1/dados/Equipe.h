@@ -8,28 +8,28 @@ class Equipe
 {
 private:
 	std::string nome;
-	int custoHora;
+	float custoHora;
 	int numIntegrantes;
-	int custoMobilizacao;
+	float custoMobilizacao;
 public:
 	Equipe();
 
-	Equipe(std::string nome, int custoHora, int numIntegrantes, int custoMobilizacao);
+	Equipe(std::string nome, float custoHora, int numIntegrantes, float custoMobilizacao);
 	
 	~Equipe();
 	
 	std::string get_nome();
 	
-	int get_custoHora();
+	float get_custoHora();
 	
-	void set_custoHora(int custoHora);
+	void set_custoHora(float custoHora);
 	
 	int get_numIntegrantes();
 	
 	void set_numIntegrantes(int numIntegrantes);
 	
-	int get_custoMobilizacao();
+	float get_custoMobilizacao();
 	
-	void set_custoMobilizacao(int custoMobilizacao);
+	void set_custoMobilizacao(float custoMobilizacao);
 };
 #endif

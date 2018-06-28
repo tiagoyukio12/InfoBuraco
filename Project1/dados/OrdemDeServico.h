@@ -16,19 +16,19 @@ private:
 	int id;
 	Date * dataInicio;
 	Date * dataFim;
-	int estimativaHoras;
-	int estimativaCusto;
+	float estimativaHoras;
+	float estimativaCusto;
 	bool finalizado;
 	Buraco * buraco;
 	std::list<Equipamento *> listaEquipamento;
 	std::list<Equipe *> listaEquipe;
 	std::list<Material *> listaMaterial;
 	int prioridade;
-	int custoTotal;
+	float custoTotal;
 	std::list<Foto *> listaFoto;
 	std::list<QuantidadeMaterial *> listaQuantMat;
 public:
-	OrdemDeServico(int id, Date * dataInicio, Date * dataFim, int estimativaHoras, int estimativaCusto, bool finalizado, Buraco * buraco, int prioridade, int custoTotal);
+	OrdemDeServico(int id, Date * dataInicio, Date * dataFim, float estimativaHoras, float estimativaCusto, bool finalizado, Buraco * buraco, int prioridade, float custoTotal);
 
 	~OrdemDeServico();
 
@@ -44,13 +44,13 @@ public:
 
 	void set_dataFim(Date * dataFim);
 
-	int get_estimativaHoras();
+	float get_estimativaHoras();
 
-	void set_estimativaHoras(int estimativaHoras);
+	void set_estimativaHoras(float estimativaHoras);
 
-	int get_estimativaCusto();
+	float get_estimativaCusto();
 
-	void set_estimativaCusto(int estimativaCusto);
+	void set_estimativaCusto(float estimativaCusto);
 
 	bool get_finalizado();
 
@@ -76,9 +76,9 @@ public:
 
 	void set_prioridade(int prioridade);
 
-	int get_custoTotal();
+	float get_custoTotal();
 
-	void set_custoTotal(int custoTotal);
+	void set_custoTotal(float custoTotal);
 
 	std::list<Foto *> getListaFoto();
 
@@ -88,6 +88,6 @@ public:
 
 	void addListaQuantidadeMaterial(QuantidadeMaterial * quantidadeMaterial);
 
-	int calcularCustoTotal(int horas);
+	float calcularCustoTotal(float horas);
 };
 #endif
