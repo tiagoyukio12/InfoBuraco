@@ -4,7 +4,7 @@
 Equipe::Equipe()
 {
 }
-Equipe::Equipe(std::string nome, int custoHora, int numIntegrantes, int custoMobilizacao) {
+Equipe::Equipe(std::string nome, float custoHora, int numIntegrantes, float custoMobilizacao) {
 	this->nome = nome;
 	this->custoHora = custoHora;
 	this->numIntegrantes = numIntegrantes;
@@ -17,11 +17,11 @@ std::string Equipe::get_nome()
 {
 	return nome;
 }
-int Equipe::get_custoHora()
+float Equipe::get_custoHora()
 {
 	return custoHora;
 }
-void Equipe::set_custoHora(int custoHora)
+void Equipe::set_custoHora(float custoHora)
 {
 	this->custoHora = custoHora;
 }
@@ -33,11 +33,11 @@ void Equipe::set_numIntegrantes(int numIntegrantes)
 {
 	this->numIntegrantes = numIntegrantes;
 }
-int Equipe::get_custoMobilizacao()
+float Equipe::get_custoMobilizacao()
 {
 	return custoMobilizacao;
 }
-void Equipe::set_custoMobilizacao(int custoMobilizacao)
+void Equipe::set_custoMobilizacao(float custoMobilizacao)
 {
 	this->custoMobilizacao = custoMobilizacao;
 }

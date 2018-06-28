@@ -7,18 +7,18 @@
 class QuantidadeMaterial
 {
 private:
-	int quantidade;
+	float quantidade;
 	Material * material;
 public:
 	QuantidadeMaterial();
 	
-	QuantidadeMaterial(int quantidade, Material * material);
+	QuantidadeMaterial(float quantidade, Material * material);
 
 	~QuantidadeMaterial();
 
-	int get_quantidade();
+	float get_quantidade();
 
-	void set_quantidade(int quantidade);
+	void set_quantidade(float quantidade);
 
 	Material * get_material();
 

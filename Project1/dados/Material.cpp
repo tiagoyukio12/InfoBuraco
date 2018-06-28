@@ -4,7 +4,7 @@
 Material::Material()
 {
 }
-Material::Material(std::string nome, int custoUnidade, std::string unidade) {
+Material::Material(std::string nome, float custoUnidade, std::string unidade) {
 	this->nome = nome;
 	this->custoUnidade = custoUnidade;
 	this->unidade = unidade;
@@ -16,11 +16,11 @@ std::string Material::get_nome()
 {
 	return nome;
 }
-int Material::get_custoUnidade()
+float Material::get_custoUnidade()
 {
 	return custoUnidade;
 }
-void Material::set_custoUnidade(int custoUnidade)
+void Material::set_custoUnidade(float custoUnidade)
 {
 	this->custoUnidade = custoUnidade;
 }

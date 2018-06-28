@@ -8,20 +8,20 @@ class Material
 {
 private:
 	std::string nome;
-	int custoUnidade;
+	float custoUnidade;
 	std::string unidade;
 public:
 	Material();
 
-	Material(std::string nome, int custoUnidade, std::string unidade);
+	Material(std::string nome, float custoUnidade, std::string unidade);
 
 	~Material();
 
 	std::string get_nome();
 
-	int get_custoUnidade();
+	float get_custoUnidade();
 
-	void set_custoUnidade(int custoUnidade);
+	void set_custoUnidade(float custoUnidade);
 
 	std::string get_unidade();
 };

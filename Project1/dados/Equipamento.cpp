@@ -5,7 +5,7 @@ Equipamento::Equipamento()
 {
 }
 
-Equipamento::Equipamento(std::string nome, int custoHora) {
+Equipamento::Equipamento(std::string nome, float custoHora) {
 	this->nome = nome;
 	this->custoHora = custoHora;
 }
@@ -17,11 +17,11 @@ std::string Equipamento::get_nome()
 {
     return nome;
 }
-int Equipamento::get_custoHora() 
+float Equipamento::get_custoHora() 
 {
     return custoHora;
 }
-void Equipamento::set_custoHora(int custoHora) 
+void Equipamento::set_custoHora(float custoHora) 
 {
     this->custoHora = custoHora;
 }
