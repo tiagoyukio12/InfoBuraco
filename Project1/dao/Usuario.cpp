@@ -35,7 +35,7 @@ sql::PreparedStatement *Usuario::prepareQuery(std::string UnboundQuery, std::str
 	MySQLDAO* mysqldao = MySQLDAO::getInstance();
 	connection = mysqldao->getConnection();
 	// Preparar Query que busca ID do Usuario
-	preparedStatement = connection->prepareStatement(UnboundQuery);
+	preparedStatement = connection->prepareStatement(UnboundQuery.c_str());
 
 	return preparedStatement;
 }

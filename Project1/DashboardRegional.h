@@ -25,8 +25,10 @@ namespace Project1 {
 		DashboardRegional(Usuario *User) : myUser(User)
 		{
 			if (!myUser->temPermissao("regional")) { MessageBox::Show("Você não tem permissão para isso."); delete this; }
-			else { this->ShowDialog(); }
+			else { 
 			InitializeComponent();
+			this->ShowDialog();
+			}
 			//
 			//TODO: Add the constructor code here
 			//
@@ -73,6 +75,8 @@ namespace Project1 {
 
 	private: System::Windows::Forms::Button^  button4;
 	private: System::Windows::Forms::Button^  button6;
+	private: System::Windows::Forms::ColumnHeader^  columnHeader6;
+	private: System::Windows::Forms::ColumnHeader^  columnHeader7;
 
 
 	protected:
@@ -112,17 +116,19 @@ namespace Project1 {
 			this->listView1 = (gcnew System::Windows::Forms::ListView());
 			this->ID = (gcnew System::Windows::Forms::ColumnHeader());
 			this->Data = (gcnew System::Windows::Forms::ColumnHeader());
+			this->Custo = (gcnew System::Windows::Forms::ColumnHeader());
 			this->listView2 = (gcnew System::Windows::Forms::ListView());
 			this->columnHeader1 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->columnHeader2 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->columnHeader3 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->columnHeader4 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->columnHeader5 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->Custo = (gcnew System::Windows::Forms::ColumnHeader());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->columnHeader6 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader7 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
@@ -158,7 +164,10 @@ namespace Project1 {
 			// 
 			// listView1
 			// 
-			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(3) { this->ID, this->Data, this->Custo });
+			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(5) {
+				this->ID, this->Data, this->Custo,
+					this->columnHeader6, this->columnHeader7
+			});
 			listViewItem1->StateImageIndex = 0;
 			listViewItem1->Tag = L"";
 			listViewItem1->UseItemStyleForSubItems = false;
@@ -178,8 +187,13 @@ namespace Project1 {
 			// 
 			// Data
 			// 
-			this->Data->Text = L"Data";
+			this->Data->Text = L"Data Inicio";
 			this->Data->Width = 70;
+			// 
+			// Custo
+			// 
+			this->Custo->Text = L"Custo Estimado";
+			this->Custo->Width = 86;
 			// 
 			// listView2
 			// 
@@ -206,31 +220,6 @@ namespace Project1 {
 			this->columnHeader2->Text = L"Localização";
 			this->columnHeader2->Width = 78;
 			// 
-			// groupBox1
-			// 
-			this->groupBox1->Controls->Add(this->button4);
-			this->groupBox1->Controls->Add(this->listView1);
-			this->groupBox1->Controls->Add(this->button1);
-			this->groupBox1->Location = System::Drawing::Point(12, 12);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(450, 206);
-			this->groupBox1->TabIndex = 7;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Ordens de Serviço";
-			this->groupBox1->Enter += gcnew System::EventHandler(this, &DashboardRegional::groupBox1_Enter);
-			// 
-			// groupBox2
-			// 
-			this->groupBox2->Controls->Add(this->button6);
-			this->groupBox2->Controls->Add(this->listView2);
-			this->groupBox2->Controls->Add(this->button3);
-			this->groupBox2->Location = System::Drawing::Point(12, 224);
-			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(450, 244);
-			this->groupBox2->TabIndex = 8;
-			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Buracos";
-			// 
 			// columnHeader3
 			// 
 			this->columnHeader3->Text = L"Tamanho";
@@ -245,10 +234,18 @@ namespace Project1 {
 			this->columnHeader5->Text = L"No. de Reclamações";
 			this->columnHeader5->Width = 114;
 			// 
-			// Custo
+			// groupBox1
 			// 
-			this->Custo->Text = L"Custo Estimado";
-			this->Custo->Width = 86;
+			this->groupBox1->Controls->Add(this->button4);
+			this->groupBox1->Controls->Add(this->listView1);
+			this->groupBox1->Controls->Add(this->button1);
+			this->groupBox1->Location = System::Drawing::Point(12, 12);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(450, 206);
+			this->groupBox1->TabIndex = 7;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Ordens de Serviço";
+			this->groupBox1->Enter += gcnew System::EventHandler(this, &DashboardRegional::groupBox1_Enter);
 			// 
 			// button4
 			// 
@@ -258,6 +255,18 @@ namespace Project1 {
 			this->button4->TabIndex = 6;
 			this->button4->Text = L"Detalhes";
 			this->button4->UseVisualStyleBackColor = true;
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->button6);
+			this->groupBox2->Controls->Add(this->listView2);
+			this->groupBox2->Controls->Add(this->button3);
+			this->groupBox2->Location = System::Drawing::Point(12, 224);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(450, 244);
+			this->groupBox2->TabIndex = 8;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Buracos";
 			// 
 			// button6
 			// 
@@ -269,6 +278,14 @@ namespace Project1 {
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &DashboardRegional::button6_Click);
 			// 
+			// columnHeader6
+			// 
+			this->columnHeader6->Text = L"Prioridade";
+			// 
+			// columnHeader7
+			// 
+			this->columnHeader7->Text = L"ID Buraco";
+			// 
 			// DashboardRegional
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -279,6 +296,7 @@ namespace Project1 {
 			this->Controls->Add(this->button2);
 			this->Name = L"DashboardRegional";
 			this->Text = L"Dashboard Regional";
+			this->Load += gcnew System::EventHandler(this, &DashboardRegional::DashboardRegional_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox2->ResumeLayout(false);
 			this->ResumeLayout(false);
@@ -306,19 +324,18 @@ namespace Project1 {
 	}
 	private: System::Void DashboardRegional_Load(System::Object^  sender, System::EventArgs^  e) {
 		using std::string;
-		sql::PreparedStatement *Query = myUser->prepareQuery("SELECT id_OS, data_inicio from OS", "regional");
+		sql::PreparedStatement *Query = myUser->prepareQuery("SELECT id_OS,data_inicio,estimativa_custo,prioridade,id_buraco from OS", "regional");
 		sql::ResultSet* resultSet = Query->executeQuery();
 
-		// Variaveis Temporarias para processar o query...
-		int id = 0;
-		std::string tempo = "";
-
+		System::Windows::Forms::ListViewItem^ itemNovo;
 		while (resultSet->next()) {
-			id = resultSet->getInt("id_OS");
-			tempo = resultSet->getString("data_inicio").c_str();
+			itemNovo = this->listView1->Items->Add(System::Convert::ToString(resultSet->getInt("id_OS"))); //OS ID
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("data_inicio").c_str())); // Data Inicio
+			itemNovo->SubItems->Add(System::Convert::ToString(static_cast<double>(resultSet->getDouble("estimativa_custo")))); // Custo Estimado
+			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("prioridade"))); // Prioridade
+			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("id_buraco"))); // ID Buraco
 
-			this->listView1->Items->Add(System::Convert::ToString(id), gcnew String(tempo.c_str()));
 		}
 	}
-	};
+};
 }

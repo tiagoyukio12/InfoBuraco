@@ -22,8 +22,10 @@ namespace Project1 {
 		despachante(Usuario *User) : myUser(User)
 		{
 			if (!myUser->temPermissao("despachante")) { MessageBox::Show("Você não tem permissão para isso."); delete this; }
-			else { this->ShowDialog(); }
-			InitializeComponent();
+			else {
+				InitializeComponent();
+				this->ShowDialog();
+			}
 			//
 			//TODO: Adicione o código do construtor aqui
 			//
