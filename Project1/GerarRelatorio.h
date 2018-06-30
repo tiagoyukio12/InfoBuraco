@@ -1,5 +1,6 @@
 #pragma once
 #include "PopupRelatorio.h"
+#include "dao/Usuario.h"
 
 namespace Project1 {
 
@@ -15,9 +16,16 @@ namespace Project1 {
 	/// </summary>
 	public ref class GerarRelatorio : public System::Windows::Forms::Form
 	{
+	private:
+		Usuario * myUser = nullptr;
 	public:
-		GerarRelatorio(void)
+		GerarRelatorio(Usuario *User) : myUser(User)
 		{
+			if (!myUser->temPermissao("regional") && !myUser->temPermissao("despachante")) { MessageBox::Show("Você não tem permissão para isso."); delete this; }
+			else {
+				InitializeComponent();
+				this->ShowDialog();
+			}
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -58,18 +66,6 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::ListViewItem^  listViewItem1 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(3) {
-				L"1",
-					L"01/01/2018", L"10,00"
-			}, -1));
-			System::Windows::Forms::ListViewItem^  listViewItem2 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(3) {
-				L"2",
-					L"10/10/2000", L"999,99"
-			}, -1));
-			System::Windows::Forms::ListViewItem^  listViewItem3 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(3) {
-				L"3",
-					L"12/12/2010", L"500,00"
-			}, -1));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -116,13 +112,6 @@ namespace Project1 {
 				this->columnHeader1, this->columnHeader2,
 					this->columnHeader3
 			});
-			listViewItem1->StateImageIndex = 0;
-			listViewItem2->StateImageIndex = 0;
-			listViewItem3->StateImageIndex = 0;
-			this->listView1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ListViewItem^  >(3) {
-				listViewItem1, listViewItem2,
-					listViewItem3
-			});
 			this->listView1->Location = System::Drawing::Point(12, 12);
 			this->listView1->Name = L"listView1";
 			this->listView1->Size = System::Drawing::Size(452, 253);
@@ -133,17 +122,18 @@ namespace Project1 {
 			// 
 			// columnHeader1
 			// 
-			this->columnHeader1->Text = L"No. OS";
+			this->columnHeader1->Text = L"OS";
 			this->columnHeader1->Width = 49;
 			// 
 			// columnHeader2
 			// 
 			this->columnHeader2->Text = L"Data de Finalização";
-			this->columnHeader2->Width = 112;
+			this->columnHeader2->Width = 113;
 			// 
 			// columnHeader3
 			// 
-			this->columnHeader3->Text = L"Custo";
+			this->columnHeader3->Text = L"Custo Total";
+			this->columnHeader3->Width = 74;
 			// 
 			// GerarRelatorio
 			// 
@@ -156,6 +146,7 @@ namespace Project1 {
 			this->Controls->Add(this->button1);
 			this->Name = L"GerarRelatorio";
 			this->Text = L"Gerar Relatório";
+			this->Load += gcnew System::EventHandler(this, &GerarRelatorio::GerarRelatorio_Load);
 			this->ResumeLayout(false);
 
 		}
@@ -165,13 +156,26 @@ namespace Project1 {
 	}
 	private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
-private: System::Void bRelFis_Click(System::Object^  sender, System::EventArgs^  e) {
-	PopupRelatorio ^ form = gcnew PopupRelatorio;
-	form->ShowDialog();
-}
-private: System::Void bRelFisFin_Click(System::Object^  sender, System::EventArgs^  e) {
-	PopupRelatorio ^ form = gcnew PopupRelatorio;
-	form->ShowDialog();
-}
-};
+	private: System::Void bRelFis_Click(System::Object^  sender, System::EventArgs^  e) {
+		PopupRelatorio ^ form = gcnew PopupRelatorio;
+		form->ShowDialog();
+	}
+	private: System::Void bRelFisFin_Click(System::Object^  sender, System::EventArgs^  e) {
+		PopupRelatorio ^ form = gcnew PopupRelatorio;
+		form->ShowDialog();
+	}
+	private: System::Void GerarRelatorio_Load(System::Object^  sender, System::EventArgs^  e) {
+		using std::string;
+		sql::PreparedStatement *Query = myUser->prepareQuery("SELECT id_OS,data_fim,custoTotal from OS WHERE data_fim is not null", "regional");
+		sql::ResultSet* resultSet = Query->executeQuery();
+
+		System::Windows::Forms::ListViewItem^ itemNovo;
+
+		while (resultSet->next()) {
+			itemNovo = this->listView1->Items->Add(System::Convert::ToString(resultSet->getInt("id_OS")));
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("data_fim").c_str()));
+			itemNovo->SubItems->Add(System::Convert::ToString(static_cast<double>(resultSet->getDouble("custoTotal"))));
+		}
+	}
+	};
 }

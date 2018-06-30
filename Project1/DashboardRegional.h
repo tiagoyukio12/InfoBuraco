@@ -2,7 +2,6 @@
 #include "GerarRelatorio.h"
 #include <memory>
 #include "dao/Usuario.h"
-
 #include <msclr\marshal_cppstd.h>
 
 namespace Project1 {
@@ -94,22 +93,6 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::ListViewItem^  listViewItem1 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(3) {
-				L"1",
-					L"10/10/2010", L"5000,00"
-			}, -1, System::Drawing::SystemColors::WindowText, System::Drawing::Color::Empty, nullptr));
-			System::Windows::Forms::ListViewItem^  listViewItem2 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(3) {
-				L"2",
-					L"01/12/2018", L"100,00"
-			}, -1));
-			System::Windows::Forms::ListViewItem^  listViewItem3 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(5) {
-				L"1",
-					L"R. do Matão", L"10", L"Próximo à calçada", L"1"
-			}, -1));
-			System::Windows::Forms::ListViewItem^  listViewItem4 = (gcnew System::Windows::Forms::ListViewItem(gcnew cli::array< System::String^  >(5) {
-				L"2",
-					L"Av. Luciano Gualberto", L"10", L"No meio da faixa", L"5"
-			}, -1));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -117,6 +100,8 @@ namespace Project1 {
 			this->ID = (gcnew System::Windows::Forms::ColumnHeader());
 			this->Data = (gcnew System::Windows::Forms::ColumnHeader());
 			this->Custo = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader6 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader7 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->listView2 = (gcnew System::Windows::Forms::ListView());
 			this->columnHeader1 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->columnHeader2 = (gcnew System::Windows::Forms::ColumnHeader());
@@ -127,8 +112,6 @@ namespace Project1 {
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->columnHeader6 = (gcnew System::Windows::Forms::ColumnHeader());
-			this->columnHeader7 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
@@ -168,10 +151,6 @@ namespace Project1 {
 				this->ID, this->Data, this->Custo,
 					this->columnHeader6, this->columnHeader7
 			});
-			listViewItem1->StateImageIndex = 0;
-			listViewItem1->Tag = L"";
-			listViewItem1->UseItemStyleForSubItems = false;
-			this->listView1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ListViewItem^  >(2) { listViewItem1, listViewItem2 });
 			this->listView1->Location = System::Drawing::Point(6, 19);
 			this->listView1->Name = L"listView1";
 			this->listView1->Size = System::Drawing::Size(437, 150);
@@ -195,13 +174,20 @@ namespace Project1 {
 			this->Custo->Text = L"Custo Estimado";
 			this->Custo->Width = 86;
 			// 
+			// columnHeader6
+			// 
+			this->columnHeader6->Text = L"Prioridade";
+			// 
+			// columnHeader7
+			// 
+			this->columnHeader7->Text = L"ID Buraco";
+			// 
 			// listView2
 			// 
 			this->listView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(5) {
 				this->columnHeader1, this->columnHeader2,
 					this->columnHeader3, this->columnHeader4, this->columnHeader5
 			});
-			this->listView2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ListViewItem^  >(2) { listViewItem3, listViewItem4 });
 			this->listView2->Location = System::Drawing::Point(6, 19);
 			this->listView2->Name = L"listView2";
 			this->listView2->Size = System::Drawing::Size(437, 190);
@@ -231,7 +217,7 @@ namespace Project1 {
 			// 
 			// columnHeader5
 			// 
-			this->columnHeader5->Text = L"No. de Reclamações";
+			this->columnHeader5->Text = L"Região";
 			this->columnHeader5->Width = 114;
 			// 
 			// groupBox1
@@ -278,14 +264,6 @@ namespace Project1 {
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &DashboardRegional::button6_Click);
 			// 
-			// columnHeader6
-			// 
-			this->columnHeader6->Text = L"Prioridade";
-			// 
-			// columnHeader7
-			// 
-			this->columnHeader7->Text = L"ID Buraco";
-			// 
 			// DashboardRegional
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -310,7 +288,7 @@ namespace Project1 {
 	private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void bGerRel_Click(System::Object^  sender, System::EventArgs^  e) {
-		GerarRelatorio ^ form = gcnew GerarRelatorio;
+		GerarRelatorio ^ form = gcnew GerarRelatorio(myUser);
 		form->ShowDialog();
 	}
 	private: System::Void bSair_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -328,13 +306,25 @@ namespace Project1 {
 		sql::ResultSet* resultSet = Query->executeQuery();
 
 		System::Windows::Forms::ListViewItem^ itemNovo;
-		while (resultSet->next()) {
-			itemNovo = this->listView1->Items->Add(System::Convert::ToString(resultSet->getInt("id_OS"))); //OS ID
-			itemNovo->SubItems->Add(gcnew String(resultSet->getString("data_inicio").c_str())); // Data Inicio
-			itemNovo->SubItems->Add(System::Convert::ToString(static_cast<double>(resultSet->getDouble("estimativa_custo")))); // Custo Estimado
-			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("prioridade"))); // Prioridade
-			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("id_buraco"))); // ID Buraco
 
+		while (resultSet->next()) {
+			itemNovo = this->listView1->Items->Add(System::Convert::ToString(resultSet->getInt("id_OS")));
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("data_inicio").c_str()));
+			itemNovo->SubItems->Add(System::Convert::ToString(static_cast<double>(resultSet->getDouble("estimativa_custo")))); // Custo Estimado
+			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("prioridade")));
+			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("id_buraco")));
+		}
+
+		// TODO: Fix character encoding
+		Query = myUser->prepareQuery("SELECT id_buraco,endereco,tamanho,pos_relativa,regiao from buracos", "regional");
+		resultSet = Query->executeQuery();
+
+		while (resultSet->next()) {
+			itemNovo = this->listView2->Items->Add(System::Convert::ToString(resultSet->getInt("id_buraco")));
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("endereco").c_str()));
+			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("tamanho")));
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("pos_relativa").c_str()));
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("regiao").c_str()));
 		}
 	}
 };
