@@ -9,7 +9,7 @@ private:
 	int ano;
 public:
 	Date(int dia, int mes, int ano);
-	Date();
+	Date(std::string data);
 	~Date();
 
 	// Retorna data no formato dd/mm/yyyy

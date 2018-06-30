@@ -24,7 +24,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>Project1</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
     <ProjectName>Projeto</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -105,13 +105,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\cpp_libs\infoburaco_mysql\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\las_descargas\mysql-connector-c++-8.0.11-windows-x86-64bit\include\jdbc;D:\las_descargas\boost_1_67_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>mysqlcppconn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
-      <AdditionalLibraryDirectories>C:\cpp_libs\infoburaco_mysql\lib64\vs14;D:\pcs3443\mysql-connector-c++-8.0.11-windows-x86-64bit\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\las_descargas\mysql-connector-c++-8.0.11-windows-x86-64bit\lib64\vs14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -159,6 +159,7 @@
     <ClCompile Include="dados\Notificacao.cpp" />
     <ClCompile Include="dados\OrdemDeServico.cpp" />
     <ClCompile Include="dados\QuantidadeMaterial.cpp" />
+    <ClCompile Include="dados\Relatorio.cpp" />
     <ClCompile Include="dao\MySQLDAO.cpp" />
     <ClCompile Include="dao\Usuario.cpp" />
     <ClCompile Include="dao\UsuarioDAO.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="dados\Notificacao.h" />
     <ClInclude Include="dados\OrdemDeServico.h" />
     <ClInclude Include="dados\QuantidadeMaterial.h" />
+    <ClInclude Include="dados\Relatorio.h" />
     <ClInclude Include="dao\MySQLDAO.h" />
     <ClInclude Include="dao\Usuario.h" />
     <ClInclude Include="dao\UsuarioDAO.h" />

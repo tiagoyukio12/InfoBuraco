@@ -1,4 +1,6 @@
 #pragma once
+#include <list>
+#include "dados/Relatorio.h"
 
 namespace Project1 {
 
@@ -14,9 +16,13 @@ namespace Project1 {
 	/// </summary>
 	public ref class PopupRelatorio : public System::Windows::Forms::Form
 	{
+	private:
+		int tipoRel;
+		std::list<OrdemDeServico *> *listaOS;
 	public:
-		PopupRelatorio(void)
+		PopupRelatorio(int tipoRel, std::list<OrdemDeServico *> *listaOS) : tipoRel(tipoRel)
 		{
+			this->listaOS = listaOS;
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
@@ -99,7 +105,10 @@ namespace Project1 {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(171, 33);
 			this->label2->TabIndex = 3;
-			this->label2->Text = L"Relatório será gerado em: /abc/relatorio.txt";
+			if (tipoRel)
+				this->label2->Text = L"Relatório será gerado em: relatorio_fisico.txt";
+			else
+				this->label2->Text = L"Relatório será gerado em: relatorio_fisico-financeiro.txt";
 			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->label2->Click += gcnew System::EventHandler(this, &PopupRelatorio::label2_Click);
 			// 
@@ -124,6 +133,12 @@ namespace Project1 {
 		this->Close();
 	}
 private: System::Void bAceitar_Click(System::Object^  sender, System::EventArgs^  e) {
+	Relatorio *relatorio = new Relatorio(listaOS);
+
+	if (tipoRel)
+		relatorio->gerarRelFis();
+	else
+		relatorio->gerarRelFisFin();
 	this->Close();
 }
 };
