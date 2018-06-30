@@ -288,7 +288,7 @@ namespace Project1 {
 	private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void bGerRel_Click(System::Object^  sender, System::EventArgs^  e) {
-		GerarRelatorio ^ form = gcnew GerarRelatorio;
+		GerarRelatorio ^ form = gcnew GerarRelatorio(myUser);
 		form->ShowDialog();
 	}
 	private: System::Void bSair_Click(System::Object^  sender, System::EventArgs^  e) {
