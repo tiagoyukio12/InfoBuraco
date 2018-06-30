@@ -17,7 +17,7 @@ namespace Project1 {
 	public ref class despachante : public System::Windows::Forms::Form
 	{
 	private:
-		Usuario *myUser = nullptr;
+		Usuario * myUser = nullptr;
 	public:
 		despachante(Usuario *User) : myUser(User)
 		{
@@ -51,6 +51,9 @@ namespace Project1 {
 	private: System::Windows::Forms::ListView^  listView1;
 	private: System::Windows::Forms::ColumnHeader^  columnHeader1;
 	private: System::Windows::Forms::ColumnHeader^  columnHeader2;
+	private: System::Windows::Forms::ColumnHeader^  columnHeader3;
+	private: System::Windows::Forms::ColumnHeader^  columnHeader4;
+	private: System::Windows::Forms::ColumnHeader^  columnHeader5;
 
 
 	protected:
@@ -75,6 +78,9 @@ namespace Project1 {
 			this->listView1 = (gcnew System::Windows::Forms::ListView());
 			this->columnHeader1 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->columnHeader2 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader3 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader4 = (gcnew System::Windows::Forms::ColumnHeader());
+			this->columnHeader5 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -82,13 +88,14 @@ namespace Project1 {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(12, 16);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(143, 13);
+			this->label1->Size = System::Drawing::Size(95, 13);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Operações de Serviço (O.S.)";
+			this->label1->Text = L"Ordens de Serviço";
+			this->label1->Click += gcnew System::EventHandler(this, &despachante::label1_Click);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(26, 174);
+			this->button1->Location = System::Drawing::Point(10, 236);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(93, 25);
 			this->button1->TabIndex = 2;
@@ -97,7 +104,7 @@ namespace Project1 {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(167, 174);
+			this->button2->Location = System::Drawing::Point(275, 236);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(93, 25);
 			this->button2->TabIndex = 3;
@@ -106,7 +113,7 @@ namespace Project1 {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(167, 224);
+			this->button3->Location = System::Drawing::Point(275, 267);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(93, 25);
 			this->button3->TabIndex = 4;
@@ -116,13 +123,17 @@ namespace Project1 {
 			// 
 			// listView1
 			// 
-			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(2) { this->columnHeader1, this->columnHeader2 });
+			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(5) {
+				this->columnHeader1, this->columnHeader2,
+					this->columnHeader3, this->columnHeader4, this->columnHeader5
+			});
 			this->listView1->Location = System::Drawing::Point(10, 42);
 			this->listView1->Name = L"listView1";
-			this->listView1->Size = System::Drawing::Size(249, 115);
+			this->listView1->Size = System::Drawing::Size(358, 188);
 			this->listView1->TabIndex = 5;
 			this->listView1->UseCompatibleStateImageBehavior = false;
 			this->listView1->View = System::Windows::Forms::View::Details;
+			this->listView1->SelectedIndexChanged += gcnew System::EventHandler(this, &despachante::listView1_SelectedIndexChanged);
 			// 
 			// columnHeader1
 			// 
@@ -130,13 +141,28 @@ namespace Project1 {
 			// 
 			// columnHeader2
 			// 
-			this->columnHeader2->Text = L"Custo";
+			this->columnHeader2->Text = L"Data Início";
+			this->columnHeader2->Width = 74;
+			// 
+			// columnHeader3
+			// 
+			this->columnHeader3->Text = L"Custo Estimado";
+			this->columnHeader3->Width = 88;
+			// 
+			// columnHeader4
+			// 
+			this->columnHeader4->Text = L"Prioridade";
+			this->columnHeader4->Width = 70;
+			// 
+			// columnHeader5
+			// 
+			this->columnHeader5->Text = L"ID Buraco";
 			// 
 			// despachante
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(380, 304);
 			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -144,6 +170,7 @@ namespace Project1 {
 			this->Controls->Add(this->label1);
 			this->Name = L"despachante";
 			this->Text = L"Dashboard Despachante";
+			this->Load += gcnew System::EventHandler(this, &despachante::despachante_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -151,8 +178,28 @@ namespace Project1 {
 #pragma endregion
 
 
-private: System::Void bSair_Click(System::Object^  sender, System::EventArgs^  e) {
-	this->Close();
-}
-};
+	private: System::Void bSair_Click(System::Object^  sender, System::EventArgs^  e) {
+		this->Close();
+	}
+	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+
+	private: System::Void despachante_Load(System::Object^  sender, System::EventArgs^  e) {
+		using std::string;
+		sql::PreparedStatement *Query = myUser->prepareQuery("SELECT id_OS,data_inicio,estimativa_custo,prioridade,id_buraco from OS", "regional");
+		sql::ResultSet* resultSet = Query->executeQuery();
+
+		System::Windows::Forms::ListViewItem^ itemNovo;
+
+		while (resultSet->next()) {
+			itemNovo = this->listView1->Items->Add(System::Convert::ToString(resultSet->getInt("id_OS")));
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("data_inicio").c_str()));
+			itemNovo->SubItems->Add(System::Convert::ToString(static_cast<double>(resultSet->getDouble("estimativa_custo")))); // Custo Estimado
+			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("prioridade")));
+			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("id_buraco")));
+		}
+	}
+	};
 }
