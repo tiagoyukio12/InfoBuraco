@@ -177,13 +177,13 @@ namespace Project1 {
 				bool finalizado = true;
 				Buraco *buraco = new Buraco(0, dataInicio, "", 1, "", "");
 				int prioridade = 0;
-				float custoTotal = (float) resultSet->getDouble("custoTotal");
+				float custoTotal = (float)resultSet->getDouble("custoTotal");
 
 				OrdemDeServico *OS = new OrdemDeServico(id, dataInicio, dataFim, estimativaHoras, estimativaCusto, finalizado, buraco, prioridade, custoTotal);
 				listaOS->push_back(OS);
 			}
 		}
-		
+
 		PopupRelatorio ^ form = gcnew PopupRelatorio(1, listaOS);
 		form->ShowDialog();
 	}

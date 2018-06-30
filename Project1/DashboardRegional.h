@@ -2,7 +2,6 @@
 #include "GerarRelatorio.h"
 #include <memory>
 #include "dao/Usuario.h"
-
 #include <msclr\marshal_cppstd.h>
 
 namespace Project1 {
@@ -218,7 +217,7 @@ namespace Project1 {
 			// 
 			// columnHeader5
 			// 
-			this->columnHeader5->Text = L"No. de Reclamações";
+			this->columnHeader5->Text = L"Região";
 			this->columnHeader5->Width = 114;
 			// 
 			// groupBox1
@@ -307,13 +306,25 @@ namespace Project1 {
 		sql::ResultSet* resultSet = Query->executeQuery();
 
 		System::Windows::Forms::ListViewItem^ itemNovo;
-		while (resultSet->next()) {
-			itemNovo = this->listView1->Items->Add(System::Convert::ToString(resultSet->getInt("id_OS"))); //OS ID
-			itemNovo->SubItems->Add(gcnew String(resultSet->getString("data_inicio").c_str())); // Data Inicio
-			itemNovo->SubItems->Add(System::Convert::ToString(static_cast<double>(resultSet->getDouble("estimativa_custo")))); // Custo Estimado
-			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("prioridade"))); // Prioridade
-			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("id_buraco"))); // ID Buraco
 
+		while (resultSet->next()) {
+			itemNovo = this->listView1->Items->Add(System::Convert::ToString(resultSet->getInt("id_OS")));
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("data_inicio").c_str()));
+			itemNovo->SubItems->Add(System::Convert::ToString(static_cast<double>(resultSet->getDouble("estimativa_custo")))); // Custo Estimado
+			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("prioridade")));
+			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("id_buraco")));
+		}
+
+		// TODO: Fix character encoding
+		Query = myUser->prepareQuery("SELECT id_buraco,endereco,tamanho,pos_relativa,regiao from buracos", "regional");
+		resultSet = Query->executeQuery();
+
+		while (resultSet->next()) {
+			itemNovo = this->listView2->Items->Add(System::Convert::ToString(resultSet->getInt("id_buraco")));
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("endereco").c_str()));
+			itemNovo->SubItems->Add(System::Convert::ToString(resultSet->getInt("tamanho")));
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("pos_relativa").c_str()));
+			itemNovo->SubItems->Add(gcnew String(resultSet->getString("regiao").c_str()));
 		}
 	}
 };
