@@ -159,6 +159,12 @@ namespace Project1 {
 		ListView::CheckedListViewItemCollection^ checkedItems = listView1->CheckedItems;
 		System::Collections::IEnumerator^ myEnum = checkedItems->GetEnumerator();
 
+		if (checkedItems->Count == 0)
+		{
+			MessageBox::Show("Você deve selecionar itens para gerar relatório.");
+			return;
+		}
+
 		while (myEnum->MoveNext()) {
 			using std::string;
 			ListViewItem^ item = safe_cast<ListViewItem^>(myEnum->Current);
@@ -188,10 +194,21 @@ namespace Project1 {
 		form->ShowDialog();
 	}
 	private: System::Void bRelFisFin_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (!myUser->temPermissao("financeiro"))
+		{
+			MessageBox::Show("Você não tem permissão para isso.");
+			return;
+		}
 		std::list<OrdemDeServico *> *listaOS = new std::list<OrdemDeServico *>;
 
 		ListView::CheckedListViewItemCollection^ checkedItems = listView1->CheckedItems;
 		System::Collections::IEnumerator^ myEnum = checkedItems->GetEnumerator();
+
+		if (checkedItems->Count == 0)
+		{
+			MessageBox::Show("Você deve selecionar itens para gerar relatório.");
+			return;
+		}
 
 		while (myEnum->MoveNext()) {
 			using std::string;

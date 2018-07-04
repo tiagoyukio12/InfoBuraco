@@ -188,7 +188,7 @@ namespace Project1 {
 
 	private: System::Void despachante_Load(System::Object^  sender, System::EventArgs^  e) {
 		using std::string;
-		sql::PreparedStatement *Query = myUser->prepareQuery("SELECT id_OS,data_inicio,estimativa_custo,prioridade,id_buraco from OS", "regional");
+		sql::PreparedStatement *Query = myUser->prepareQuery("SELECT id_OS,data_inicio,estimativa_custo,prioridade,id_buraco from OS", "despachante");
 		sql::ResultSet* resultSet = Query->executeQuery();
 
 		System::Windows::Forms::ListViewItem^ itemNovo;
