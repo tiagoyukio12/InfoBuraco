@@ -41,6 +41,7 @@ Usuario* UsuarioDAO::getUsuario(std::string login, std::string senha)
 				if (Func != "") { Permissoes.push_back(Func); }
 			};
 		}
+		else { return nullptr; }
 
 		return new Usuario(login, Permissoes);
 }

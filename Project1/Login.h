@@ -250,6 +250,10 @@ private: System::Void bt_validar_Click(System::Object^  sender, System::EventArg
 
 			UsuarioDAO *userDAO = new UsuarioDAO();
 			Usuario *User = userDAO->getUsuario(login, senha);
+			if (User == nullptr) {
+				MessageBox::Show("Usuario ou senha incorretos");
+				return;
+			}
 
 			std::string Mensagem = "Usuário: " + (User->getUsername()) + " logado com sucesso\n  Permissoes:\n";
 			for (std::string perm : User->getPermissoes())
